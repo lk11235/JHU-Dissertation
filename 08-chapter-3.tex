@@ -149,7 +149,7 @@ A cross sectional view of the CMS tracker in the r-z plane is shown in Figure~\r
     \end{center}
 \end{figure}
 
-The CMS pixel detector (a photograph of which is presented in Figure~\ref{fig:CMSpixel}) contains an array of 124 million pixels and is positioned closest to the beam pipe, which makes it essential for reconstructing the short-lived decay products of heavy particles. In the Phase-1 geometry, the pixel detector consists of four cylindrical barrel layers located at radii of approximately 3~cm, 7~cm, 11~cm, and 16~cm, with additional forward and backward endcap disks extending coverage at angles along the beamline (regions with higher values of pseudorapidity, parameterized by $\eta$ in Figure~\ref{fig:silicontracker}).
+The CMS pixel detector (a photograph of which is presented in Figure~\ref{fig:CMSpixel}) contains an array of 124 million pixels and is positioned closest to the beam pipe, which makes it essential for reconstructing the short-lived decay products of heavy particles. In the Phase-1 geometry, the pixel detector consists of four cylindrical barrel (BPIX) layers located at radii of approximately 3~cm, 7~cm, 11~cm, and 16~cm, with additional forward and backward endcap disks (FPIX) extending coverage at angles along the beamline (regions with higher values of pseudorapidity, parameterized by $\eta$ in Figure~\ref{fig:silicontracker}).
 
 \begin{figure}[!ht]
     \begin{center}
@@ -764,25 +764,25 @@ In an ideally aligned tracker, the reconstructed invariant mass of a resonance \
 
 Tracker misalignment may be indicated if the mean reconstructed mass deviates from the expected value of 91.2 GeV, either uniformly or as a function of pseudorapidity \( \eta \) and azimuthal angle \( \phi \). This validation is performed using LHC collision data after accumulating a sufficiently large sample of \( Z \to \mu^+\mu^- \) events. Since this method relies on well-understood physics processes in stable operating conditions, it serves as a powerful tool for assessing alignment precision in the detector.
 
-\subsection{Examples of Alignment and Validation with HipPy}
+\subsection{Alignment and Validation with HipPy}
 
-Aside from assisting with occasional beam spot calculations, most of my service work for the CMS experiment has involved generating tracker alignment parameters with HipPy and validating the results against Millepede. 
+Aside from assisting with occasional beam spot calculations, most of my service work for the CMS experiment has involved generating tracker alignment parameters with HipPy and validation against analogous Millepede alignments. I was also responsible for documenting the HipPy alignment procedure and initiating updates to our scripts. 
 
 \subsubsection{Resurrection of HipPy and early campaigns with test beam data}
 
-With the help of former students, I documented the procedure for HipPy software. More in later subsection. 
+Alignment work began with the resurrection of the HipPy workflow and running of the first CRUZET alignments in 2021. We also began using CRAFT and beam data to align the pixel and strip detectors with HipPy. I initiated documentation of the HipPy software~\cite{SWGuideH90:online} and alignment validation~\cite{Alignmen77:online}. I also performed validation of our results against the Millepede analogs for alignment of high-level structures (HLS) in the pixel detector as well as alignment of the pixel ladders (inside the BPIX), pixel panels (inside the FPIX), and strip HLS (TIB, TOB, TID, and TEC). 
 
-Resurrection of HipPy with Jeff running first CRUZET alignments with HipPy. 
+HipPy achieved performance comparable to that of Millepede for the alignment of pixel HLS~\cite{WeeklyTr72:online, WeeklyTr25:online}. Our results lagged behind Millepede in the alignment of additional modules, but this was consistent with our expectations due to the limited number of iterations we were able to run with HipPy at the time (which would be improved by software updates I made later). As such, we continued to run alignments with HipPy to cross-check future Millepede results. 
 
-We attempt to produce any alignment with CRAFT+beam. Recreate mp3448. Failed for seemingly random numbers of iterations.
+% We attempted to produce any alignment with CRAFT+beam. Recreate mp3448. Failed for seemingly random numbers of iterations. 
 
-DMR validation plots
+% DMR validation plots
 
-hp3221 iter8 x global tag
+% hp3221 iter8 x global tag
 
-hp3222 iter4 x global tag
+% hp3222 iter4 x global tag
 
-Alignments with beam only were presented.
+% Alignments with beam only were presented.
 
 % \begin{figure}[!htb]
 %     \begin{center}
@@ -794,9 +794,27 @@ Alignments with beam only were presented.
 
 \subsubsection{HLT alignment at 400 V}
 
-Update of HLT conditions triggered by raised HV in BPIX L1 350 → 400 V (Era G) 
+% Update of HLT conditions triggered by raised HV in BPIX L1 350 → 400 V (Era G) 
 
-Assisted Millepede team with mp3594.
+% Assisted Millepede team with mp3594.
+
+In late 2022, CMS introduced an updated operational condition in the Barrel Pixel Detector (BPIX), specifically increasing the high voltage (HV) applied to the sensors in Layer 1 from 350\,V to 400\,V, motivated by the cumulative radiation damage experienced by the silicon sensors. 
+% This had resulting in degraded charge collection efficiency and overall tracking performance. By elevating the HV, the depletion depth within the sensors was improved, thereby enhancing the signal-to-noise ratio and cluster charge collection efficiency.
+
+However, this HV increase also induced subtle mechanical shifts and modified charge distributions within the pixels, impacting local hit reconstruction. Consequently, the alignment constants utilized by the High-Level Trigger (HLT) required updating to ensure continued accurate track reconstruction at the trigger level. 
+% Accurate alignment is critical for maintaining high trigger efficiencies, particularly for vertexing, b-tagging, and lepton-triggering algorithms, all highly sensitive to detector misalignment.
+
+% As part of this update, prompt alignment constants were recalibrated based on data collected immediately following the voltage change. The alignment update underwent thorough validation procedures, employing track-based residuals and Data Quality Monitoring (DQM) tools to assess improvements in track reconstruction accuracy and cluster positioning. Once validated, these updated alignment constants were incorporated into the HLT global conditions database (GT), effectively optimizing the performance of HLT selections during Run~3 Era G data-taking.
+
+My contribution involved assisting in update of HLT alignment parameters, focusing on the verification of track residual distributions and shifts in the tracker geometry. Using beam data, I prepared a HipPy alternative to the Millepede alignment of the pixel detector at module level while keeping the strips fixed, and ran validation of the new alignment parameters which were then incorporated into the HLT global conditions database (GT), to optimize the performance of trigger selections during Run~3 Era G data-taking~\cite{WeeklyTr24:online}.
+
+% In December 2022, during Run~3 data-taking (Era~G), the operating high voltage (HV) applied to the innermost layer of the Barrel Pixel Detector (BPIX~L1) was increased from 350\,V to 400\,V. This change was motivated by the need to maintain efficient charge collection in the presence of accumulated radiation damage, particularly affecting the innermost silicon sensors. Higher bias voltages enhance the depletion depth and improve the signal-to-noise ratio, thereby preserving cluster charge and hit reconstruction efficiency critical for robust track seeding.
+
+% This hardware modification had direct implications for the prompt alignment used in the High-Level Trigger (HLT) system. Since the HLT relies on accurate alignment constants to perform online track reconstruction with high efficiency and low fake rates, even minor mechanical shifts—induced by thermal expansion or voltage-related stress—can degrade trigger performance. In particular, the pixel-based tracking algorithms employed at HLT are sensitive to changes in hit positions and cluster shapes, especially for early tracking stages and vertex-based selections.
+
+% To accommodate this change, the Tracker DPG performed an HLT alignment update using data collected after the HV adjustment. Updated alignment constants were derived from track-based residuals and validated through data quality monitoring (DQM) metrics, including hit residuals, track pulls, and pixel hit efficiencies. These constants were subsequently integrated into the HLT Global Tag (GT), ensuring consistent detector geometry across the online and offline reconstruction environments.
+
+% I contributed to this update by assisting in the alignment validation workflow, verifying the compatibility of the updated constants with HLT tracking performance. This included monitoring residual distributions and DQM histograms, and coordinating with the tracker and HLT operations teams to ensure a seamless deployment into the online conditions database. The successful update preserved tracking efficiency across all pixel-based HLT paths, safeguarding the performance of key physics triggers during high-luminosity conditions.
 
 % \begin{figure}[!htb]
 %     \begin{center}
@@ -808,11 +826,23 @@ Assisted Millepede team with mp3594.
 
 \subsubsection{HipPy alignment during 2023 commissioning and pp collisions startup}
 
-CRAFT 2023 alignment analog to mp3631
+I also contributed to the alignment of the tracker during 2023 commissioning and collisions startup. Using early 2023 CRUZET data, I ran a HipPy alignment of the pixel ladder and half-cylinder, as well as the strip HLS (TIB, TOB, TEC)~\cite{Untitled59:online, WeeklyTr66:online}. We were able to match the Millepede alignment of the pixel detector and validated the DMRs for the new alignment parameters, as visualized in Figure~\ref{fig:2023_CRUZET_BPIX}. 
 
-Using mp3628 as SG
+\begin{figure}[!htb]
+    \begin{center}
+        \includegraphics[width=0.8\textwidth,clip] {2023_CRUZET_BPIX.png}
+        \caption{Example DMR validation plot for the BPIX, comparing HipPy (cyan) and Millepede (yellow) alignments using early 2023 CRUZET data, both calculated from the starting geometry of mp3628 (green)~\cite{WeeklyTr66:online}.}
+        \label{fig:2023_CRUZET_BPIX}
+    \end{center}
+\end{figure}
 
-Using cosmics only
+% CRAFT 2023 alignment analog to mp3631
+
+% Using mp3628 as SG
+
+% Using cosmics only
+
+% \subsubsection{Investigating HipPy alignment with cosmics}
 
 % \begin{figure}[!htb]
 %     \begin{center}
@@ -821,20 +851,14 @@ Using cosmics only
 %         \label{fig:HIP}
 %     \end{center}
 % \end{figure}
-
-\subsubsection{Investigating HipPy alignment with cosmics}
-
-% \begin{figure}[!htb]
-%     \begin{center}
-%         \includegraphics[width=0.8\textwidth,clip] {HIP.jpg}
-%         \caption{Process diagram of the Hits-and-Impact-Points (HIP) alignment algorithm \cite{2022166795}.}
-%         \label{fig:HIP}
-%     \end{center}
-% \end{figure}
-
-
-\subsubsection{Tracker workshops and Documentation}
-
 
 \subsubsection{Deriving the Beam Spot (BS) conditions}
+
+The BS represents the average interaction region of proton-proton collisions in CMS and serves as a critical reference point for tracking and vertexing. Precise knowledge of the BS position is essential for computing impact parameters, reconstructing primary vertices, and validating alignment parameters. During alignment updates (particularly those affecting the HLT) the most up-to-date beam spot conditions are needed to ensure consistency in the Full Track Validation (FTV), to evaluate the performance of track reconstruction. As part of my contributions to CMS tracker alignment, I derived and plotted BS payloads for several alignment candidates, in collaboration with the Millepede team.
+
+\subsubsection{Updates and Workshops}
+
+While working with the HipPy algorithm, we have slowly been making upgrades and investigating how to improve its performance for tracker alignment (particularly when using multiple datasets). The latter is still ongoing, but I have been able to modernize the HipPy code to improve functionality and ease of use. Through an update to the official CMS Software (CMSSW) repository, I improved the usability of the codebase by implementing bug fixes and updating the HipPy algorithm to python3. I also modified the HipPy scripts to log additional information about submitted alignment jobs, track ongoing processes without requiring persistent sessions, and avoid interruptions of the algorithm to aid in the execution of more iterations and consequently achieve better alignment performance~\cite{WeeklyTr41:online}. 
+
+I had previously presented the HipPy algorithm at the Second CMS Tracker Alignment Workshop, in preparation for our contributions to tracker alignment in Run~3~\cite{CMSTrack15:online}. After implementing my HipPy updates, I gave a follow-up presentation with a working example of aligning the pixel half-barrel and half-cylinder at the CMS Tracker Training Days~\cite{TrackerT67:online}.
 
