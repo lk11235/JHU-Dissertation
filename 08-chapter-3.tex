@@ -122,7 +122,7 @@ The CMS tracker is designed to precisely record charged particle trajectories wh
 \begin{figure}[!ht]
     \begin{center}
         \includegraphics[width=0.8\textwidth,clip] {TrackerLayoutWithLAS2.png}
-        \caption{Schematic view of one quarter of the silicon tracker in the r-z plane~\cite{Adam:2748381}. This thesis utilized data from LHC Run2 after the Phase-1 upgrades to the tracker.}
+        \caption{Schematic view of one quarter of the silicon tracker in the r-z plane~\cite{Adam:2748381}. This thesis utilized data from LHC Run 2 after the Phase-1 upgrades to the tracker.}
         \label{fig:silicontracker}
     \end{center}
 \end{figure}
@@ -721,7 +721,7 @@ A key advantage of HipPy is its seamless integration with the CMS software frame
 
 \subsection{Validation}
 
-Several validation methods are used within CMS to quantify the quality of calculated alignment parameters. Some common validation methods include geometry comparisons, distribution of the median of residuals, primary vertex, cosmic track splitting, and $Z\rightarrow\mu\mu$ or ``dimuon'' validation~\cite{2022166795}.
+Several validation methods are used within CMS to quantify the quality of calculated alignment parameters. Some common validation methods include geometry comparisons, distribution of the median of residuals, primary vertex, cosmic track splitting, and $Z\to\mu\mu$ or ``dimuon'' validation~\cite{2022166795}.
 
 \subsubsection{Geometry Comparison}
 
@@ -768,7 +768,7 @@ Tracker misalignment may be indicated if the mean reconstructed mass deviates fr
 
 Aside from assisting with occasional beam spot calculations, most of my service work for the CMS experiment has involved generating tracker alignment parameters with HipPy and validation against analogous Millepede alignments. I was also responsible for documenting the HipPy alignment procedure and initiating updates to our scripts. 
 
-\subsubsection{Resurrection of HipPy and early campaigns with test beam data}
+\subsubsection{Preparing HipPy for Run 3}
 
 Alignment work began with the resurrection of the HipPy workflow and running of the first CRUZET alignments in 2021. We also began using CRAFT and beam data to align the pixel and strip detectors with HipPy. I initiated documentation of the HipPy software~\cite{SWGuideH90:online} and alignment validation~\cite{Alignmen77:online}. I also performed validation of our results against the Millepede analogs for alignment of high-level structures (HLS) in the pixel detector as well as alignment of the pixel ladders (inside the BPIX), pixel panels (inside the FPIX), and strip HLS (TIB, TOB, TID, and TEC). 
 
@@ -792,7 +792,7 @@ HipPy achieved performance comparable to that of Millepede for the alignment of 
 %     \end{center}
 % \end{figure}
 
-\subsubsection{HLT alignment at 400 V}
+\subsubsection{HLT alignment at 400\,V}
 
 % Update of HLT conditions triggered by raised HV in BPIX L1 350 → 400 V (Era G) 
 
@@ -824,7 +824,7 @@ My contribution involved assisting in update of HLT alignment parameters, focusi
 %     \end{center}
 % \end{figure}
 
-\subsubsection{HipPy alignment during 2023 commissioning and pp collisions startup}
+\subsubsection{2023 Commissioning and Startup}
 
 I also contributed to the alignment of the tracker during 2023 commissioning and collisions startup. Using early 2023 CRUZET data, I ran a HipPy alignment of the pixel ladder and half-cylinder, as well as the strip HLS (TIB, TOB, TEC)~\cite{Untitled59:online, WeeklyTr66:online}. We were able to match the Millepede alignment of the pixel detector and validated the DMRs for the new alignment parameters, as visualized in Figure~\ref{fig:2023_CRUZET_BPIX}. 
 
@@ -852,11 +852,11 @@ I also contributed to the alignment of the tracker during 2023 commissioning and
 %     \end{center}
 % \end{figure}
 
-\subsubsection{Deriving the Beam Spot (BS) conditions}
+\subsubsection{Deriving Beam Spot (BS) conditions}
 
 The BS represents the average interaction region of proton-proton collisions in CMS and serves as a critical reference point for tracking and vertexing. Precise knowledge of the BS position is essential for computing impact parameters, reconstructing primary vertices, and validating alignment parameters. During alignment updates (particularly those affecting the HLT) the most up-to-date beam spot conditions are needed to ensure consistency in the Full Track Validation (FTV), to evaluate the performance of track reconstruction. As part of my contributions to CMS tracker alignment, I derived and plotted BS payloads for several alignment candidates, in collaboration with the Millepede team.
 
-\subsubsection{Updates and Workshops}
+\subsubsection{HipPy Updates}
 
 While working with the HipPy algorithm, we have slowly been making upgrades and investigating how to improve its performance for tracker alignment (particularly when using multiple datasets). The latter is still ongoing, but I have been able to modernize the HipPy code to improve functionality and ease of use. Through an update to the official CMS Software (CMSSW) repository, I improved the usability of the codebase by implementing bug fixes and updating the HipPy algorithm to python3. I also modified the HipPy scripts to log additional information about submitted alignment jobs, track ongoing processes without requiring persistent sessions, and avoid interruptions of the algorithm to aid in the execution of more iterations and consequently achieve better alignment performance~\cite{WeeklyTr41:online}. 
 
