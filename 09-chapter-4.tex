@@ -155,18 +155,19 @@ In this chapter, I present an updated CMS measurement of the \Hboson width using
 
 % In this subsection, we provide more technical details on the MC samples used in this analysis.
 
-This analysis takes advantage of new tools for off-shell simulation that are now available through JHUGen \cite{2010,2012,2014,2016,2020,2021}. With the release of JHUGen v7.2.4, options were added to generate off-shell EW events, including hadronic VH production, the continuum background, and up to two scalar resonances. By release v7.3.0, the generation of interference in $4\ell$ final states in off-shell EW production was improved and we were able to simulate off-shell EW Higgs production with the inclusion of the anomalous couplings described in Section~\ref{sec:amplitudeEFT}. In conjunction with the previously available simulations for off-shell gluon fusion production, illustrated in \ref{fig:offshellAC_BSI}, this enables us to perform future off-shell analysis of these anomalous couplings with all primary Higgs production modes simulated through JHUGen. When we incorporate anomalous couplings into future analyses, reweighting techniques will also allow us to create distributions for hypotheses with mixed anomalous contributions to the HVV amplitude. This significantly reduces the number of uniquely generated samples we need to produce. 
+This analysis takes advantage of new tools for off-shell simulation that are now available through JHUGen \cite{2010,2012,2014,2016,2020,2021}. With the release of JHUGen v7.2.4, options were added to generate off-shell EW events, including hadronic VH production, the continuum background, and up to two scalar resonances. By release v7.3.0, the generation of interference in $4\ell$ final states in off-shell EW production was improved and we were able to simulate off-shell EW Higgs production with the inclusion of the anomalous couplings described in Section~\ref{sec:amplitudeEFT}. In conjunction with the previously available simulations for off-shell gluon fusion production, illustrated in \ref{fig:offshellAC_BSI}, this enables us to perform future off-shell analysis of these anomalous couplings with all primary Higgs production modes simulated through JHUGen. When we incorporate anomalous couplings into future analyses, reweighting techniques will also allow us to create distributions for hypotheses with mixed anomalous contributions to the HVV amplitude. This significantly reduces the number of unique samples we must generate. 
+% This significantly reduces the number of uniquely generated samples we need to produce. 
 
-\begin{figure}[!htb]
+\begin{figure}[!hbt]
 \centering
-\includegraphics[width=0.85\textwidth,clip] {figures/offshellAC_BSI.png}
+\includegraphics[width=0.9\textwidth,clip] {figures/offshellAC_BSI.png}
 \caption{ The four-lepton m4$\ell$ invariant mass distributions for gluon fusion (left) and electroweak production in association with two jets (right) at the LHC with a 13 TeV pp collision energy. The total SM production (“H+bkg+int”) and background-only (“bkg”) components are shown in black. Three operators cz (magenta), czz (blue), and $\tilde{c}$zz (red) are shown in color, as analogs of the anomalous couplings described in Section~\ref{sec:amplitudeEFT}, and they are introduced in place of the SM interaction with their strength constrained to reproduce the SM cross section of the on-shell Higgs boson signal production \cite{offshellWGnote}.}
 \label{fig:offshellAC_BSI}
 \end{figure}
 
-Notably, as is done in this analysis, we can also reweight these various samples to the same SM-like hypothesis, and leverage the additional statistics to make a more precise measurement of the SM-like Higgs boson. The matrix element likelihood approach (MELA), which I will discuss further in Section~\ref{sec:mela}, is used reweight all simulated off-shell events to the SM hypothesis through modified MCFM matrix elements \cite{12077235,10073492}. This eliminates the need for out-of-the-box simulation of additional SM events by utilizing statistics from our pre-existing BSM simulations instead. Furthermore, this analysis improves on past papers \cite{190100174} by including the entire Run 2 dataset (spanning years 2016, 2017, and 2018). Table~\ref{tab:samplesDAStable} provides an accounting of the datasets used.
+Notably, as is done in this analysis, we can also reweight these various samples to the same SM-like hypothesis, and leverage the additional statistics to make a more precise measurement of the SM-like Higgs boson. The matrix element likelihood approach (MELA), which I will discuss further in Section~\ref{sec:mela}, is used to reweight all simulated off-shell events to the SM hypothesis through modified MCFM matrix elements \cite{12077235,10073492}. This eliminates the need for out-of-the-box simulation of additional SM events by utilizing statistics from our pre-existing BSM simulations instead. Furthermore, this analysis improves on past papers \cite{190100174} by including the entire Run 2 dataset (spanning years 2016, 2017, and 2018). Table~\ref{tab:samplesDAStable} provides an accounting of the datasets used.
 
-\begin{table}[h]
+\begin{table}[!hbt]
 	\centering
 	\resizebox{\textwidth}{!}{%
 		\begin{tabular}{|l|l|}
@@ -204,7 +205,7 @@ There already exist on-shell samples (centered around the 125 GeV Higgs peak) fo
 
 These samples are valuable in the validation of the recently produced off-shell samples for gluon fusion and electroweak production, which were generated using JHUGen v7.3.0 interfaced to MCFM v7.0.1 and MCFM v7.0.6. It is important to note here, as we compare on-shell events between all these samples using the cross-section and branching ratio values from Yellow Report (YR) 4, that the off-shell samples share common generator inputs which are not applied to the on-shell samples. These cuts and their associated efficiencies are documented in Table~\ref{tab:geninputtable}.
 
-\begin{table}[h]
+\begin{table}[!hbt]
 	\centering
 	\resizebox{\textwidth}{!}{%
 		\begin{tabular}{|c|c|c|c|}
@@ -265,12 +266,226 @@ These samples are valuable in the validation of the recently produced off-shell 
 % 	\label{tab:geninputtable}
 % \end{table}
 
+Generator-level cuts are applied on leptons during the generation of the samples.
+These selection cuts remove leptons that fall outside the detector acceptance or reconstruction capabilities. It has been validated that no leptons which would otherwise be reconstructed in the analysis are lost due to these cuts. However, it is important to evaluate their efficiency to ensure proper normalization of the cross sections. The impact of these cuts is assessed through independent Monte Carlo (MC) studies, where various processes are generated both with and without the aforementioned lepton selection. 
+
+In the case of gluons fusion \offshell samples, only lepton selection requirements are applied:
+\noindent $p_T(\ell_{1,2,3,4})> 3$ GeV, $|\eta(\ell_{1,2,3,4})| < 2.7$.
+The effect of these cuts on inclusive samples, generated with JHUGen signal only, 
+is shown in Table~\ref{tab:ggHlepteff}.
+
+\begin{table}[!hbt]
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+$m_H$ & H $\rightarrow$ $4e$ & H $\rightarrow$ $2e2\mu$ \\ 
+\hline
+125 GeV  & 64.413\%           & 64.285\%              \\ 
+200 GeV  & 73.627\%           & 73.789\%              \\ 
+300 GeV  & 78.098\%           & 78.061\%              \\ 
+400 GeV  & 82.115\%           & 82.285\%              \\ 
+500 GeV  & 85.217\%           & 85.214\%              \\ 
+600 GeV  & 87.699\%           & 87.655\%              \\ 
+\hline
+\end{tabular}
+\caption{
+Efficiencies of generator-level requirements on leptons ($p_T(\ell_{1,2,3,4})> 3$ GeV, $|\eta(\ell_{1,2,3,4})| < 2.7$)
+in the \offshell gluons fusion samples as a function of $m_{4\ell}$.
+}
+\label{tab:ggHlepteff}
+\end{center}
+\end{table}
+
+
+
+In the case of EW \offshell samples, we evaluate efficiency of the generator-level cuts separately for
+the VBF, WH, and ZH samples, and then combine them according to their relative cross sections, used as weight. 
+First we evaluate effect of lepton selection requirements are applied:
+\noindent $p_T(\ell_{1,2,3,4})> 3$ GeV, $|\eta(\ell_{1,2,3,4})| < 2.7$.
+The effect of these cuts on EW samples, generated with JHUGen signal only, 
+is shown in Table~\ref{tab:EWlepteff}.
+The effect of jet cuts on EW samples, generated with JHUGen signal only, 
+is shown in Table~\ref{tab:EWjeteff}.
+
+\begin{table}[!hbt]
+\begin{center}
+\small
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+$m_H$ & VBF & WH  & ZH  & EW (had) & EW (full) \\ 
+\hline
+125 GeV  & 71.35\%    & 61.64\%    & 63.09\%    & 69.15\%     & 68.45\%              \\ 
+200 GeV  & 78.90\%    & 71.45\%    & 72.18\%    & 78.13\%     & 77.83\%              \\ 
+300 GeV  & 81.70\%    & 76.78\%    & 77.39\%    & 81.46\%     & 81.36\%              \\ 
+400 GeV  & 84.57\%    & 82.06\%    & 82.46\%    & 84.50\%     & 84.47\%              \\  
+500 GeV  & 86.95\%    & 85.77\%    & 85.91\%    & 86.93\%     & 86.92\%               \\  
+600 GeV  & 88.72\%    & 88.19\%    & 88.28\%    & 88.71\%     & 88.71\%               \\  
+\hline
+\end{tabular}
+\caption{
+Efficiencies of generator-level requirements on leptons ($p_T(\ell_{1,2,3,4})> 3$ GeV, $|\eta(\ell_{1,2,3,4})| < 2.7$)
+in the \offshell EW samples as a function of $m_{4\ell}$.
+The EW (had) includes VBF and hadronic VH production, 
+while EW (full) also includes leptonic VH production. 
+}
+\label{tab:EWlepteff}
+\end{center}
+\end{table}
+
+\begin{table}[!hbt]
+\begin{center}
+\small
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+\multicolumn{1}{|c}{~} & \multicolumn{5}{|c|}{efficiency of jet cuts} & \multicolumn{2}{c|}{jet + lepton cuts} \\
+\hline
+$m_H$ & VBF & WH  & ZH  & EW (had) & EW (full)   & EW (had) & EW (full)          \\ 
+\hline
+125 GeV  & 86.92\%    & 85.49\%    & 88.38\%    & 86.84\%     & 86.81\%     & 60.05\%     & 59.42\%              \\ 
+200 GeV  & 87.09\%    & 88.59\%    & 90.34\%    & 87.33\%     & 87.42\%     & 68.23\%     & 68.03\%             \\ 
+300 GeV  & 87.28\%    & 91.50\%    & 92.48\%    & 87.51\%     & 87.61\%     & 71.29\%     & 71.28\%             \\ 
+400 GeV  & 87.20\%    & 93.38\%    & 94.00\%    & 87.39\%     & 87.47\%     & 73.84\%     & 73.88\%             \\  
+500 GeV  & 86.84\%    & 94.71\%    & 94.98\%    & 87.00\%     & 87.07\%     & 75.62\%     & 75.67\%              \\  
+600 GeV  & 86.56\%    & 95.61\%    & 95.83\%    & 86.69\%     & 86.92\%     & 76.90\%     & 76.95\%              \\  
+\hline
+\end{tabular}
+\caption{
+Efficiencies of generator-level requirements on jets in the \offshell EW samples as a function of $m_{4\ell}$.
+The EW (had) includes VBF and hadronic VH production, while EW (full) also includes leptonic VH production. 
+These efficiencies are calculated after generator-level requirements had been applied on leptons,
+as indicated in Table~\ref{tab:EWlepteff}.
+The last two columns incorporate efficiency of lepton cuts together with jet cuts. 
+}
+\label{tab:EWjeteff}
+\end{center}
+\end{table}
+
+
+\subsection{$K$ factors}
+
+\subsubsection{ggH processes}
+
+The cross section for the SM Higgs boson produced via gluon fusion in the \onshell region is reported in the Yellow Report 4 (YR4)~\cite{YellowRep4} at N$^3$LO as 48.58\,pb. To match this value, using our estimated effect of these cuts for the $m_H = 125$\,GeV mass point, we can calculate an additional NNLO-to-N$^3$LO $K$ factor, which is independent of the Higgs boson mass, to rescale the cross section of the \onshell gluon fusion signal.
+
+The N3LO cross section, reported in YR4, is corrected for the GEN cut efficiency and the \Hboson branching fraction,
+and calculated for the three lepton flavor combinations separately. The $K$ factor is expected to be independent of
+the lepton flavor, therefore the result is averaged in the end. The calculation is performed at 125 GeV mass point,
+for which the N3LO cross section is reported, but the correction is assumed to be independent of the mass. 
+The MC cross section includes the LO to NNLO $K$ factor. The calculation and results are summarized in Table~\ref{tab:ggH_YR4}. 
+The ratio between the YR4 and MC cross sections is treated as an additional NNLO to N3LO $K$ factor of 1.154.
+This $K$ factor is applied to all the gluon fusion samples across all mass values (pure signal, interference, and background).
+
+\begin{table}[!hbt]
+\begin{center}
+\small
+\begin{tabular}{llllr}
+\hline
+              & YR4 $\sigma$[pb] & BR   & GEN cut efficiency  &  $\sigma$[pb]     \\
+\hline
+ggH$\rightarrow$2e2$\mu$ & 48.58  & 5.897$\times10^{-5}$   & 65.285$\%$    & 0.001870    \\
+ggH$\rightarrow$4e     & 48.58 & 3.254$\times10^{-5}$  & 64.413$\%$   & 0.001018    \\
+ggH$\rightarrow$4$\mu$   & 48.58 & 3.254$\times10^{-5}$   & 64.413$\%$    & 0.001018    \\
+\vspace{-0.2cm} \\
+MC ggH$\rightarrow$2e2$\mu$ &   & &  & 0.001628    \\
+MC ggH$\rightarrow$4e    &   & &  & 0.000888   \\
+MC ggH$\rightarrow$4$\mu$  &   & &  & 0.000888 \\
+\vspace{-0.2cm} \\
+\hline
+\vspace{-0.2cm} \\
+
+\multicolumn{4}{l}{NNLO QCD to N3LO QCD and NLO EW $K$ factor} &   \textbf{1.154} \\   %1.147 } \\
+\vspace{-0.2cm} \\
+\hline
+\end{tabular}
+\caption{The calculation for the NNLO to N3LO $K$ factor for the gluon fusion MC samples. 
+The factor calculated at 125 GeV is applied to all the gluon fusion processes in the full \offshell region.}
+\label{tab:ggH_YR4}
+\end{center}
+\end{table}
+
+% The overall uncertainty on the combined $K$ factor from LO QCD+EW to N3LO QCD and NLO EW
+% in the \offshell region is mass-dependent and conservatively assigned from the NNLO QCD $K$ factor 
+% uncertainties originating from QCD scale, PDF, and $\alpha_\mathrm{strong}$.
+% The uncertainty in the \onshell region is taken directly from the YR4 N3LO QCD and NLO EW calculation. 
+% There is an additional uncertainty of $10\%$ (factor of $1.0\pm0.1$) on the background $K$ factor, 
+% due to assumption that background $K$ factor is the same as the signal $K$ factor. 
+% The interference component receives the $\sqrt{1.0\pm0.1}$ uncertainty factor. 
+
+\begin{figure*}[!hbt]
+\centering
+\includegraphics[width=0.7\textwidth]{kfqcd_ggF.pdf}
+\caption {LO to NNLO $K$ factor as a function of ZZ invariant mass for ggH samples.}
+\label{fig:kfggf}
+\end{figure*}
+
+The gluon fusion simulation is performed at LO and a mass dependent LO to NNLO $K$ factor is applied which is presented in Figure~\ref{fig:kfggf}. 
 All \offshell production simulations are conducted at LO in QCD, with higher-order corrections 
 included through a $K$ factor. In the gluon fusion process, the factorization and renormalization scales are set to run dynamically by equating them to $m_{4\ell}/2$. To incorporate higher-order QCD corrections, signal cross section calculations are performed at leading order (LO), next-to-leading order (NLO), and next-to-next-to-leading order (NNLO) using the MCFM and HNNLO 2 programs~\cite{Catani:2007vq,Grazzini:2008tf,Grazzini:2013mca} under the narrow-width approximation, covering a broad range of masses spanning both the on-shell and off-shell regions.
 
 The ratios of NNLO to LO cross sections, referred to as NNLO-to-LO $K$ factors, are used to reweight~\cite{deFlorian:2016spz} the $m_{4\ell}$ distributions obtained from LO QCD simulations produced with MCFM and JHUGen. A constant $K$ factor of 1.10 is applied across the entire $m_{4\ell}$ spectrum to normalize the Higgs boson production cross section via gluon fusion to the next-to-next-to-next-to-leading order (N$^3$LO) prediction at $m_{4\ell} \approx 125$\,GeV~\cite{deFlorian:2016spz}. The $m_{4\ell}$ distributions from the POWHEG+JHUGen simulation of the $gg \to H$ process are reweighted using NNLO-to-NLO $K$ factors.
 
 While the NNLO-to-LO $K$ factor is directly applicable to the signal, it serves only as an approximation for the $gg \to 4\ell$ background and its interference with the signal. An approximate NLO calculation~\cite{Caola:2015psa,Melnikov:2015laa,Campbell:2016ivq,Caola:2016trd} is available for both the background and the interference. The resulting NLO-to-LO $K$ factors for these components agree with the signal $K$ factor within approximately 10\% in the $m_{4\ell} > 220$\,GeV range relevant to this analysis. Consequently, the same NNLO-to-LO $K$ factor and N$^3$LO normalization, computed for the signal, are applied to the background and interference, along with their associated uncertainties. An additional 10\% uncertainty is assigned to the background component, and a 5\% uncertainty—corresponding to the square root of the variation—is applied to the interference.
+
+
+\subsubsection{EW processes}
+
+% Using JHUGen+MCFM programs, we simulate the EW (VBF and VH) \Hboson production inclusively and the decay of the \Hboson 
+% to all lepton flavors (including taus). The allowed vector boson decays are restricted to the hadronic modes in the VH process,
+% because the EW simulation covers the $4\ell+2$jets final state.  
+% Furthermore, these LO samples are generated with lepton and jet cuts. The lepton cuts are the same as applied on the
+% gluon fusion sample discussed above and do not affect final selection after reconstruction. 
+% The jet cuts reduce the number of selected events by about $15\%$, affecting only the non-VBF and non-VH topology. 
+% The YR4~\cite{YellowRep4} calculation includes cross sections of the individual EW processes 
+% (VBF, ZH, WH) up to NNLO QCD and NLO EW for the \onshell region. As in the case of the gluon fusion processes, we compare the 
+% \onshell cross section of the simulated EW processes to the cross-section reported in YR4 and extract a universal correction 
+% (k factor) to be applied in all EW simulated processes (pure signal, interference, and background). To perform the comparison, 
+% the GEN cut efficiency is applied to each of the EW YR4 numbers, the V to hadronic branching fraction (taken from Reference~\cite{Zyla:2020zbs}) 
+% is applied to WH and ZH cross sections and finally the $H\to4\ell$ including $\tau$ branching fraction is applied to all numbers. 
+% The three results are summed and compared to the simulated pure signal sample cross-section, estimated at the \Hboson mass peak. 
+% The procedure is summarized in Table~\ref{tab:ew_YR4}. We utilize the YR4 uncertainties for the NNLO cross section, and estimate 
+% an inclusive uncertainty per source on the $K$ factor. The estimated LO to NNLO QCD and NLO EW $K$ factor is estimated to be 
+% \textbf{1.039} $\{{}^{+1.33\%}_{-0.8\%}(\mathrm{QCD\,scale})\pm 1.89\%(\mathrm{PDF})\pm 0.65\%(\alpha_\mathrm{strong})\}$.
+
+Using the JHUGen+MCFM programs, we simulate EW Higgs boson production via VBF and VH processes, with inclusive decays of the Higgs boson to all lepton flavors (including $\tau$ leptons). In the VH process, the vector boson decays are restricted to hadronic modes, as the EW simulation is designed to model the $4\ell + 2$\,jets final state.
+
+These LO samples are generated with generator-level lepton and jet cuts. The lepton cuts are identical to those applied in the gluon fusion simulation described earlier and do not affect the final event selection after reconstruction. The jet cuts, however, reduce the number of selected events by approximately 15\%, impacting only topologies that are not explicitly VBF- or VH-tagged.
+
+YR4 provides cross-section predictions for individual EW processes (VBF, ZH, WH) in the \onshell region, calculated up to NNLO in QCD and NLO in EW corrections~\cite{YellowRep4}. As in the gluon fusion case, we compare the \onshell cross section of the simulated EW samples to the YR4 predictions and extract a universal correction factor ($K$ factor) to be applied consistently across all EW simulated samples, including pure signal, interference, and background contributions.
+
+For this comparison, we apply the generator-level (GEN) selection efficiency to each YR4 cross-section value. Additionally, for WH and ZH processes, we multiply by the hadronic branching fraction of the vector boson (taken from Reference~\cite{Zyla:2020zbs}). Finally, the $H \to 4\ell$ branching fraction (including decays to $\tau$ leptons) is applied to all processes. The resulting three contributions are summed and compared to the simulated pure signal cross section at the Higgs boson mass peak. This procedure is summarized in Table~\ref{tab:ew_YR4}.
+
+We adopt the uncertainties reported in YR4 for the NNLO cross section and estimate an inclusive uncertainty for each source contributing to the $K$ factor. The resulting LO-to-NNLO QCD and NLO EW correction factor is:
+\[
+K = \mathbf{1.039} \quad \left\{{}^{+1.33\%}_{-0.8\%} \,(\text{QCD scale}) \,\pm\, 1.89\% \,(\text{PDF}) \,\pm\, 0.65\%\, (\alpha_\text{strong}) \right\}.
+\]
+
+\begin{table}[!hbt]
+\begin{center}
+\small
+\begin{tabular}{lllllr}
+\vspace{-0.2cm} \\
+\hline
+    & YR4 [pb]    & GEN cut efficiency  & V hadronic & $H\to4\ell$ & $\sigma $[pb]   \\
+\hline
+VBF & 3.782    & 62.073\% &    & 0.0002745 &  0.000644  \\
+WH  & 1.373    & 52.611\% & 67.41\%  & 0.0002745 &  0.000134 \\
+ZH  & 0.8839   & 55.867\% & 69.911\%   & 0.0002745 &  0.000095  \\
+Total  &          &          &           &           &  0.000873  \\
+\vspace{-0.2cm} \\
+MC   &          &          &           &           &  0.000840 \\
+\vspace{-0.2cm} \\
+\hline
+\vspace{-0.2cm} \\
+\multicolumn{5}{l}{LO QCD+EW to NNLO QCD and NLO EW $K$ factor} &  \textbf{1.039} \\
+\vspace{-0.2cm} \\
+\hline
+\end{tabular}
+\caption{The calculation for the NLO to NNLO $K$ factor for the EW \offshell samples at the \Hboson mass peak (125 GeV). 
+The calculated factor is applied to all the \offshell EW MC samples.
+\label{tab:ew_YR4}}
+\end{center}
+\end{table}
+
 
 The $q\bar{q} \to 4\ell$ background is simulated at NLO in QCD and LO in electroweak (EW) theory using POWHEG. The fully differential cross section for this process has been computed at NNLO in QCD~\cite{Grazzini:2015hta}, and a differential NNLO-to-NLO $K$ factor as a function of $m_{4\ell}$ is applied to the POWHEG sample. This $K$ factor is approximately 1.1 at $m_{4\ell} = 125$\,GeV and varies between 1.0 and 1.2 in the region $m_{4\ell} < 500$\,GeV. The uncertainty from missing EW corrections in the low-mass region ($m_{4\ell} < 2m_{Z}$) is small compared to QCD-related uncertainties.
 
@@ -283,7 +498,7 @@ To account for EW corrections, an NLO-to-LO $K$ factor~\cite{Bierweiler:2013dja}
 With up to 13 observables ($\boldsymbol{\Omega}$) describing the \Hboson kinematic distributions in the $2\to 6$ process, as visualized in Figure~\ref{fig:MELA}, it can be a challenging task to perform an optimal analysis. %in a multidimensional space of observables. 
 MELA lets us calculate the matrix elements (ME) for each Higgs boson interaction as a function of its couplings and interacting particles. We can utilize these ME in ratios to change our hypotheses and reweight our Monte-Carlo samples, or treat them as probabilities and construct discriminants from the ME to use as observables (as discussed further in Section~\ref{sec:categories}). 
 
-\begin{figure}[!htb]
+\begin{figure}[!hbt]
 \centering
 \includegraphics[width=0.8\textwidth,clip] {figures/MELA.jpg}
 \caption{Diagrams of relevant kinematic observables in VBF (left), VH (center), and ggH (right) production modes of the Higgs boson.}
@@ -296,7 +511,7 @@ The MELA approach is designed to reduce the number of observables to the minimum
 % exclusive categories based on the presence of other particles produced in association with the \Hboson candidate~\cite{Sirunyan:2021rug}.
 % We use the values of kinematic discriminants, and other selection requirements to perform the categorization. 
 
-% \begin{figure}[!htb]
+% \begin{figure}[!hbt]
 % \centering
 % \includegraphics[width=0.8\textwidth,clip] {figures/MELA.jpg}
 % \caption{Diagrams of relevant kinematic observables in VBF (left), VH (center), and ggH (right) productions of the Higgs boson.}
@@ -465,7 +680,7 @@ on impact parameter significance, secondary vertex characteristics, and jet kine
 % Two types of discriminants were defined for either the production or decay process, and we also combine them into a joint 
 % discriminant for the full $2\to 6$ process where relevant.
 
-% \begin{figure}[!htb]
+% \begin{figure}[!hbt]
 % \centering
 % \includegraphics[width=0.8\textwidth,clip] {figures/MELA.jpg}
 % \caption{Diagrams of relevant kinematic observables in VBF (left), VH (center), and ggH (right) productions of the Higgs boson.}
@@ -547,7 +762,7 @@ Sequential selection criteria are used to define the event categories:
     \item[--] The Untagged category comprises all remaining events.
 \end{itemize}
 
-The selected events are split into the three categories summarized with their observables in Table~\ref{tab:categoriesoffshell}: VBF-tagged, VH-tagged, and Untagged.
+The selected events are split into the three categories summarized with their observables in Table~\ref{tab:categoriesoffshell}: VBF-tagged, VH-tagged, and Untagged. Distributions of these discriminants are shown in Figures~\ref{fig:SelectionDiscriminant_D2jetVBF}, \ref{fig:SelectionDiscriminant_D2jetZH}, and \ref{fig:SelectionDiscriminant_D2jetWH}. Because the EW off-shell SM signal samples are dominated by VBF production, the fraction of VH events is predictably small, as reflected in Figures~\ref{fig:SelectionDiscriminant_D2jetZH} and \ref{fig:SelectionDiscriminant_D2jetWH}.
 
 \begin{table}[!hbtp]
 	\begin{center}
@@ -585,6 +800,52 @@ The selected events are split into the three categories summarized with their ob
     \label{tab:categoriesoffshell}
 \end{table}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure*}[!hbt]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/D2JVBF_cat.pdf}
+\caption{
+Distribution of the $\mathcal{D}_\mathrm{2jet}^{VBF}$ discriminant used in selection of the VBF-2jet category. 
+Three distributions are shown in the \offshell selection region ($m_{4\ell}>220$ GeV):
+SM signal \offshell production in gluon fusion (JHUGen+MCFM, magenta); 
+SM signal \offshell EW production, including VBF, ZH, and WH (JHUGen+MCFM, red); 
+$q\bar{q}\to 4\ell$ background production (shaded). 
+The selection threshold of 0.5 is shown with the dashed line. 
+}
+\label{fig:SelectionDiscriminant_D2jetVBF}
+\end{figure*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure*}[!hbt]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/D2JZH_cat.pdf}
+\caption{
+Distribution of the $\mathcal{D}_\mathrm{2jet}^{ZH}$  discriminant used in selection of the VH-hadronic category. 
+Three distributions are shown in the \offshell selection region ($m_{4\ell}>220$ GeV):
+SM signal \offshell production in gluon fusion (JHUGen+MCFM, magenta); 
+SM signal \offshell EW production, including VBF, ZH, and WH (JHUGen+MCFM, red); 
+$q\bar{q}\to 4\ell$ background production (shaded). 
+The selection threshold of 0.5 is shown with the dashed line. 
+}
+\label{fig:SelectionDiscriminant_D2jetZH}
+\end{figure*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure*}[!hbt]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/D2JWH_cat.pdf}
+\caption{
+Distribution of the $\mathcal{D}_\mathrm{2jet}^{WH}$  discriminant used in selection of the VH-hadronic category. 
+Three distributions are shown in the \offshell selection region ($m_{4\ell}>220$ GeV):
+SM signal \offshell production in gluon fusion (JHUGen+MCFM, magenta); 
+SM signal \offshell EW production, including VBF, ZH, and WH (JHUGen+MCFM, red); 
+$q\bar{q}\to 4\ell$ background production (shaded). 
+The selection threshold of 0.5 is shown with the dashed line. 
+}
+\label{fig:SelectionDiscriminant_D2jetWH}
+\end{figure*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 In each event category, the observables $\vec{x} = \{ m_{4\ell}, \mathcal{D}_\text{bkg}, \mathcal{D}_\text{int} \}$ are defined following Equations \ref{eq:melaD} and \ref{eq:melaDint},
 and as summarized in Table~\ref{tab:categoriesoffshell}. The $\mathcal{D}_\text{bkg}$ observable is calculated with category-dependent methodology. In the Untagged category,
 $\mathcal{P}_\text{bkg}$ is evaluated for the dominant $q\bar{q}\to4\ell$ background process.  
@@ -621,14 +882,14 @@ In the VBF-tagged and VH-tagged categories, production information incorporating
 % In the untagged category, decay information is used in the calculation of \Dint.
 % In the VBF-tagged and VH-tagged categories, production information with the two associated jets is used.
 
-\begin{figure}[!htb]
+\begin{figure}[!hbt]
 \centering
 \includegraphics[width=0.8\textwidth,clip] {figures/Figure_004.pdf}
 \caption{Distributions of the observed (points) and predicted (stacked histograms) \Dbkgkin of the four-lepton system, in the inclusive final state. The predictions for the \Hboson signal and the three main backgrounds are given by the different colors.  The vertical bars on the points show the statistical uncertainties in the data.}
 \label{fig:DiscDist}
 \end{figure}
 
-% \begin{figure}[!htb]
+% \begin{figure}[!hbt]
 % \centering
 % \includegraphics[width=0.8\textwidth,clip] {figures/DiscDists.jpg}
 % \caption{}
@@ -654,7 +915,7 @@ For EW processes, categorization efficiencies typically agree within 5--10\% bet
 We implement a correction procedure whereby the categorization efficiency as a function of $m_{4\ell}$ is adjusted to match that of the SM signal derived from POWHEG samples, with the assumption that this correction applies equally to background and interference contributions. 
 This procedure ensures conservation of the total event yield across all three categories at each $m_{4\ell}$ value. An illustration of these categorization corrections can be found in Figure~\ref{fig:ew_catcor}.
 
-\begin{figure*}[h!]
+\begin{figure*}[!hbt]
 \centering
 \includegraphics[width=0.85\textwidth]{figures/Corrections_allyears.pdf}
 \caption {
@@ -663,11 +924,33 @@ Corrections as a function of $m_{4\ell}$ for \offshell EW process selection effi
 \end{figure*}
 
 The simulation of the $\vec{x}$ observables enumerated in Table~\ref{tab:categoriesoffshell} remains unaffected by jet modeling in the Untagged category. Furthermore, the modeling of observables in jet-tagged categories for EW processes demonstrates remarkable consistency between direct MCFM+JHUGen samples and reweighted POWHEG+JHUGen implementations. 
-However, jet modeling in jet-tagged categories for the ggH process significantly impacts the parametrization of probability distributions. Therefore, within these two jet-tagged categories, the gluon fusion process is implemented through reweighted POWHEG+JHUGen simulation, which provides more precise parton shower matching and consequently superior modeling of associated jet activity. In this framework, samples are reweighted according to the appropriate theoretical model using the MELA package.
+However, jet modeling in jet-tagged categories for the ggH process significantly impacts the parametrization of probability distributions, as illustrated in Figures~\ref{fig:ggfmodvh} and \ref{fig:ggfmodvbf}.
+
+\begin{figure*}[!hbt]
+\centering
+\includegraphics[width=0.45\textwidth]{figures/offggH_0PM_VHtagged_projy_0.pdf}
+\includegraphics[width=0.45\textwidth]{figures/offggH_0PM_VHtagged_projy_2.pdf}\\
+\includegraphics[width=0.45\textwidth]{figures/offggH_0PM_VHtagged_projz_0.pdf}
+\includegraphics[width=0.45\textwidth]{figures/offggH_0PM_VHtagged_projz_2.pdf}\\
+\caption {Comparison of $\mathcal{D}^{\rm VH+{\rm dec}}_{\rm bkg}$ and $\mathcal{D}^{\rm VH+{\rm dec}}_{\rm bsi}$ distributions between JHUGen and POWHEG for inclusive $m_{4\ell}$ (left) and $250 < m_{4\ell} < 370$ GeV (right).}
+\label{fig:ggfmodvh}
+\end{figure*}
+
+\begin{figure*}[!hbt]
+\centering
+\includegraphics[width=0.45\textwidth]{figures/offggH_0PM_VBFtagged_projy_0.pdf}
+\includegraphics[width=0.45\textwidth]{figures/offggH_0PM_VBFtagged_projy_2.pdf}\\
+\includegraphics[width=0.45\textwidth]{figures/offggH_0PM_VBFtagged_projz_0.pdf}
+\includegraphics[width=0.45\textwidth]{figures/offggH_0PM_VBFtagged_projz_2.pdf}\\
+\caption {Comparison of $\mathcal{D}^{\rm VBF+{\rm dec}}_{\rm bkg}$ and $\mathcal{D}^{\rm VBF+{\rm dec}}_{\rm bsi}$ distributions between JHUGen and POWHEG for inclusive $m_{4\ell}$ (left) and $250 < m_{4\ell} < 370$ GeV (right).}
+\label{fig:ggfmodvbf}
+\end{figure*}
+
+Therefore, within these two jet-tagged categories, the gluon fusion process is implemented through reweighted POWHEG+JHUGen simulation, which provides more precise parton shower matching and consequently superior modeling of associated jet activity. In this framework, samples are reweighted according to the appropriate theoretical model using the MELA package.
 
 The observed and expected distributions of observables $\vec{x}$ for events in the \offshell region are illustrated in Figure~\ref{fig:ObservablesCat} for each of the three categories. The expected distributions are found using the SM predicted signal and background cross sections.
 
-\begin{figure*}[!htb]
+\begin{figure*}[!hbt]
 \centering
 \includegraphics[width=0.31\textwidth]{figures/Figure_005-a.pdf}
 \includegraphics[width=0.31\textwidth]{figures/Figure_005-b.pdf}
@@ -744,11 +1027,11 @@ For the pre-fit distributions, the different cross sections are set to their SM 
 
 The largest background in the $H \to 4\ell$ channel originates from the process $q\bar{q} \to ZZ/Z\gamma^*/\gamma^*\gamma^* \to 4\ell$. Additionally, the processes $gg \to ZZ/Z\gamma^*/\gamma^*\gamma^* \to 4\ell$ and electroweak (EW) production---including vector boson scattering and $VZZ$ processes---also contribute to the background and interfere with off-shell \Hboson production. In the \onshell region, this interference is negligible; however, the EW background additionally includes other processes such as $VVV$, $t\bar{t}VV$, and $t\bar{t}V$. To model the invariant mass ($m_{4\ell}$) distribution for each irreducible background component, a third-order Bernstein polynomial is employed over the $m_{4\ell}$ range of 105--140\,GeV~\cite{PhysRevD.111.092014}.
 
-Another important background arises from processes collectively referred to as $Z+X$, where leptons are misidentified from decays of heavy-flavor hadrons, in-flight decays of light mesons within jets, or charged hadrons overlapping with $\pi^0$ decays. The dominant contribution to this background is from $Z$+jets events, estimated using data-driven methods in dedicated control regions. These control regions are defined by selecting events containing one lepton pair meeting the ${Z}_{1}$ candidate requirements, along with an additional pair of opposite-sign leptons passing looser identification criteria compared to the main analysis selection. These four leptons must then satisfy the ${Z}_{1}, {Z}_{2}$ selection criteria. The background yield in the signal region is obtained by weighting the control region events by the lepton misidentification probability ($f_{\ell}$), defined as the probability for a non-prompt lepton to pass the analysis selection. A detailed description of this method can be found in Ref.~\cite{Sirunyan:2017exp}. The $m_{4\ell}$ distribution for the $Z+X$ background is modeled by a Landau function, whose parameters are determined from data over an extended invariant mass range of 70--770\,GeV due to limited event counts.
+Another important background arises from processes collectively referred to as $Z+X$, where leptons are misidentified from decays of heavy-flavor hadrons, in-flight decays of light mesons within jets, or charged hadrons overlapping with $\pi^0$ decays. The dominant contribution to this background is from $Z$+jets events, estimated using data-driven methods in dedicated control regions. These control regions are defined by selecting events containing one lepton pair meeting the ${Z}_{1}$ candidate requirements, along with an additional pair of opposite-sign leptons passing looser identification criteria compared to the main analysis selection. These four leptons must then satisfy the ${Z}_{1}, {Z}_{2}$ selection criteria. The background yield in the signal region is obtained by weighting the control region events by the lepton misidentification probability ($f_{\ell}$), defined as the probability for a non-prompt lepton to pass the analysis selection. A detailed description of this method can be found in Reference~\cite{Sirunyan:2017exp}. The $m_{4\ell}$ distribution for the $Z+X$ background is modeled by a Landau function, whose parameters are determined from data over an extended invariant mass range of 70--770\,GeV due to limited event counts.
 
 The observed numbers of data events, expected backgrounds, and signal yields in the on-shell and off-shell regions are summarized in Tables~\ref{table:yields_SR} and \ref{tab:templateyields_offshell}, respectively. The signal and $ZZ$ background yields are derived from simulation, whereas the $Z+X$ background yield is obtained directly from data. Further details on the modeling of the \Hboson signal, interference effects with background processes, and $ZH$ cross-feed in the off-shell analysis are provided in Section~\ref{physicsmodel}.
 
-\begin{table*}[!htb] 
+\begin{table*}[!hbt] 
 \centering
 \begin{tabular}{lrrrrr}
    	&	$4\mu$	&	4e	&	$2e2\mu$	&	$2\mu2e$	& Total \\
@@ -764,7 +1047,7 @@ Observed	&	230	&	94	&	170	& 107	&	601	\\
 \label{table:yields_SR}
 \end{table*}
 
-\begin{table*}[!htb] 
+\begin{table*}[!hbt] 
 \centering
 \begin{tabular}{lrrrr}
 & VBF-tagged & VH-tagged & Untagged & Total \\
@@ -804,7 +1087,7 @@ where $\Gamma_0$ is the reference value of the \Hboson width (not necessarily it
 used in simulation. Otherwise, the definition of the terms is the same as in Equation~(\ref{eq:ponshell}). 
 In the off-shell width analysis, there are two production modes, $j$ (gluon fusion and EW, which includes both VBF and VH), 
 and three jet-tagged categories, $k$. All lepton flavors and data periods are combined in this analysis.
-The contributions from $t\bar{t}H$, $b\bar{b}H$, and $tqH$ are expected to be negligible at high energies.
+The contributions from $t\bar{\text{t}}H$, $b\bar{\text{b}}H$, and $tqH$ are expected to be negligible at high energies.
 
 The $\mathcal{P}_{jk}^{\text{sig}}$, $\mathcal{P}_{jk}^{\text{int}}$, $\mathcal{P}_{jk}^{\text{cross}}$, and $\mathcal{P}_{jk}^\text{bkg}$ probability densities are normalized to the expected number of events, and are implemented as binned histograms (templates) of the observables $\vec{x}$ listed in Table~\ref{tab:categoriesoffshell}. These templates are obtained as weighted linear combinations of existing simulated signal or background samples~\cite{PhysRevD.111.092014}.
 
@@ -812,7 +1095,38 @@ The $\mathcal{P}_{jk}^{\text{sig}}$, $\mathcal{P}_{jk}^{\text{int}}$, $\mathcal{
 
 The \offshell region includes all events with $m_{4\ell} > 220$\,GeV. In this region, other processes can mimic off-shell \Hboson production and decay to four leptons. In particular, we consider \onshell Higgs boson events where the \Hboson decays to $2\ell + X$, with $X$ containing additional leptons that allow the event to satisfy the four-lepton selection criteria. The dominant \onshell \Hboson process that can contribute to the \offshell region is $Z(\ell\ell)H(2\ell + X)$, referred to as ZH cross-feed.
 
-The ZH cross-feed contribution is estimated using \onshell ZH simulated samples with H $\to$ WW and ZZ decays, allowing for both hadronic and leptonic decays of the Z boson. The most significant contributions arise from $H \to 2\ell 2\nu$ and $H \to 2\ell 2q$ final states, produced in association with $Z \to 2\ell$. To avoid double counting, \onshell cross-feed events are explicitly removed from the \offshell simulated samples.
+The ZH cross-feed contribution is estimated using \onshell ZH simulated samples with H $\to$ WW and ZZ decays, allowing for both hadronic and leptonic decays of the Z boson. The most significant contributions come from $H \to 2\ell 2\nu$ and $H \to 2\ell 2q$ final states, produced in association with $Z \to 2\ell$. Other possible contributions studied include the onshell t$\bar{\text{t}}$H production that contributes 0.57 events, and the ZH production of the Higgs with subsequent decay to two muons estimated to contribute $<$ 0.1 events. 
+
+Templates for the statistical analysis are prepared using the \onshell ZH samples to model cross-feed
+as a separate \onshell process. 
+At the same time, to avoid double counting, \onshell cross-feed events are explicitly removed from the \offshell simulated samples.
+% this cross-feed is removed from the \offshell modeling with the following procedure 
+% using the MC truth information. 
+Any simulated $H\to 2\ell 2q$ events in the \offshell EW JHUGen sample with mass close 
+to the \Hboson pole mass within 100 MeV are removed. This procedure has close to 100\%
+efficiency of selecting \onshell cross-feed events, while having a negligible effect on the other events. In addition to the ZH templates, the t$\bar{\text{t}}$H contribution is modeled and included in the statistical analysis. 
+
+% In Figure~\ref{fig:crossfeed} (left) the $m_{4\ell}$ distribution of three samples is presented:
+% \onshell cross-feed ZH(125) process, \offshell EW process with the cross-feed removed, 
+% and the dominant $q\bar{q} \to 4\ell$ background process, which is scaled down by three
+% orders of magnitude for easier visualization. The cross-feed and background processes exhibit similar distributions, while the genuine \offshell process has a more distinct shape with a dominant contribution at higher energies. The right plot shows the $m_{2\ell2q}$ mass distribution of events that are reconstructed in the \offshell region (Phantom sample). There is distinct narrow peak of \onshell cross-feed events at 125 GeV. A study of the categorization of the cross-feed events reveals the majority $(>91\%)$ end up in the Untagged category with the rest split between the two other event categories of the analysis. 
+In Figure~\ref{fig:crossfeed} (left), the $m_{4\ell}$ distributions of three simulated samples are shown: the \onshell cross-feed process ZH(125), the genuine \offshell EW signal process with cross-feed contributions removed, and the dominant $q\bar{q} \to 4\ell$ background, which is scaled down by three orders of magnitude to facilitate comparison. The cross-feed and background processes exhibit similar kinematic distributions, while the genuine \offshell signal displays a distinct shape with a dominant contribution at higher invariant masses.
+
+The right panel of Figure~\ref{fig:crossfeed} shows the $m_{2\ell2q}$ invariant mass distribution for events reconstructed in the \offshell signal region (referred to as the Phantom sample). A narrow peak corresponding to the \onshell cross-feed component is clearly visible at 125\,GeV. A study of the event categorization reveals that the majority of these cross-feed events (\(>91\%\)) are classified into the Untagged category, with the remainder distributed between the VBF- and VH-tagged categories used in the analysis.
+
+% Separate process with cross-feed events is defined in the likelihood fit, where these events are scaled with the \onshell signal strength. 
+
+\begin{figure*}[!hbt]
+\centering
+\includegraphics[width=0.45\textwidth]{figures/M4L_proj_incl.pdf}
+\includegraphics[width=0.52\textwidth]{figures/phantomm2l2q.pdf}
+\caption {
+Left: $m_{4\ell}$ distribution of \onshell cross-feed events, \offshell signal, and the dominant 
+$q\bar{q} \to 4\ell$ background process (scaled down by three orders of magnitude).
+Right: distribution of $m_{2\ell2q}$ for events reconstructed in the \offshell region 
+of the $H\to 4\ell$ analysis. 
+\label{fig:crossfeed}}
+\end{figure*}
 
 \subsection{Parameterizing the on-shell Higgs boson} \label{sec:onshell}
 
@@ -828,9 +1142,9 @@ including the signal strength $\mu_j$ defined as the ratio of the signal yield t
 $\vec{\xi}_{jk}$ are the constrained nuisance parameters for a particular parametrization,
 and $\vec{x}$ are the observables.
 
-In the \onshell \Hboson mass and width analysis, six signal production processes are considered: ggH, VBF, VH, t$\bar{t}$H, b$\bar{b}$H, and tqH. The primary background contributions arise from three processes: $q\bar{q}/gg \to ZZ/Z\gamma^*/\gamma^*\gamma^* \to 4\ell$ and $Z+X$. 
+In the \onshell \Hboson mass and width analysis, six signal production processes are considered: ggH, VBF, VH, t$\bar{\text{t}}$H, b$\bar{\text{b}}$H, and tqH. The primary background contributions arise from three processes: $q\bar{q}/gg \to ZZ/Z\gamma^*/\gamma^*\gamma^* \to 4\ell$ and $Z+X$. 
 
-When constraints on the total Higgs boson width ($\Gamma_H$) are extracted through a simultaneous fit to both the \onshell and \offshell regions, the \onshell component follows Scheme~2, as detailed in Ref.~\cite{CMS:2021nnc}, which also provides further information on event categorization as well as signal and background modeling.
+When constraints on the total Higgs boson width ($\Gamma_H$) are extracted through a simultaneous fit to both the \onshell and \offshell regions, the \onshell component follows Scheme~2, as detailed in Reference~\cite{CMS:2021nnc}, which also provides further information on event categorization as well as signal and background modeling.
 
 For the \Hboson mass measurement, a one-dimensional (1D) statistical model is constructed in each category, for each signal production process, using the observable $m_{4\ell}$. The model is split by data-taking year and final state, and is further separated into nine bins of relative mass resolution ($\delta m_{4\ell}/m_{4\ell}$). 
 
@@ -854,7 +1168,7 @@ For the estimation of the $Z + X$ background, differences in the flavor composit
 
 An example impact plot of the nuisance parameters on the expected Higgs boson width result is presented in Figure~\ref{fig:impact}.
 
-\begin{figure}[!htb]
+\begin{figure}[!hbt]
 \begin{center}
 \includegraphics[width=0.85\textwidth]{figures/impacts_all.pdf}
 \caption
@@ -873,7 +1187,7 @@ Expected impact of nuisance parameters on the Higgs boson width ratio to the SM 
 
 % The extended likelihood function is constructed using the probability densities in Equations~(\ref{eq:ponshell}) and~(\ref{eq:poffshell}), with each event characterized by the discrete category $k$ and typically three observables $\vec{x}$. The likelihood $\mathcal{L}$ is maximized with respect to the nuisance parameters $\vec{\xi}_{jk}$ describing the systematic uncertainties and the signal strength parameter $\mu$ (total signal strength), or $\mu_F$ (signal strength for ggH) and $\mu_V$ (signal strength for the EW processes). The allowed 68 and 95\% CL intervals are defined using the profile likelihood function, $-2\Delta\ln\mathcal{L} = 1.00$ and $3.84$, respectively, for which exact coverage is expected in the asymptotic limit~\cite{Wilks:1938dza}.
 
-% Constraints on $\Gamma_H$ are set by simultaneously fitting $H\to ZZ\to4\ell$ events from the on- and off-shell regions. The on-shell region corresponds to Scheme 2 in Ref.~\cite{CMS:2021nnc}, where six mutually exclusive event categories are defined and anomalous interactions are constrained to zero. It determines two signal strengths, $\mu_j$ in Equations~(\ref{eq:ponshell}) and~(\ref{eq:poffshell}), 
+% Constraints on $\Gamma_H$ are set by simultaneously fitting $H\to ZZ\to4\ell$ events from the on- and off-shell regions. The on-shell region corresponds to Scheme 2 in Reference~\cite{CMS:2021nnc}, where six mutually exclusive event categories are defined and anomalous interactions are constrained to zero. It determines two signal strengths, $\mu_j$ in Equations~(\ref{eq:ponshell}) and~(\ref{eq:poffshell}), 
 % labeled as $\mu^\text{on-shell}_{F}$ and $\mu^\text{on-shell}_{V}$, which correspond to production mechanisms driven by fermion and vector boson couplings ofthe \Hboson, respectively. 
 % The \Hboson mass is constrained to $m_H$=125.38 GeV \cite{Sirunyan:2020xwk} in this fit. 
 % The observed and expected constraints on the \Hboson width are shown in Table~\ref{table:widthoffshellcomb}.
@@ -886,7 +1200,7 @@ An extended binned maximum likelihood fit is performed on the combined \onshell 
 The extended likelihood function is constructed from the probability densities defined in Equations~(\ref{eq:ponshell}) and~(\ref{eq:poffshell}), where each event is characterized by a discrete category index $k$ and typically three observables $\vec{x}$. The likelihood $\mathcal{L}$ is maximized with respect to the nuisance parameters $\vec{\xi}_{jk}$, which encode systematic uncertainties, and the signal strength parameter $\mu$ (representing the total signal yield), or alternatively $\mu_F$ and $\mu_V$, corresponding to the gluon-fusion and electroweak production processes, respectively. Confidence intervals at 68\% and 95\% CL are determined using the profile likelihood method, with thresholds of $-2\Delta\ln\mathcal{L} = 1.00$ and $3.84$ ~\cite{Wilks:1938dza}.
 % Confidence intervals at 68\% and 95\% CL are determined using the profile likelihood method, with thresholds of $-2\Delta\ln\mathcal{L} = 1.00$ and $3.84$, respectively, consistent with asymptotic coverage expectations~\cite{Wilks:1938dza}.
 
-Constraints on $\Gamma_H$ are extracted from a simultaneous fit to $H \to ZZ \to 4\ell$ events in both the \onshell and \offshell regions. The \onshell region follows Scheme 2 as defined in Ref.~\cite{CMS:2021nnc}, where six mutually exclusive categories are used and anomalous Higgs interactions are set to zero. This fit yields two signal strength parameters, $\mu^\text{on-shell}_{F}$ and $\mu^\text{on-shell}_{V}$, as defined in Equations~(\ref{eq:ponshell}) and~(\ref{eq:poffshell}), corresponding to production via fermionic and vector boson couplings of the \Hboson, respectively. The Higgs boson mass is fixed to $m_H = 125.38$\,GeV~\cite{Sirunyan:2020xwk}.
+Constraints on $\Gamma_H$ are extracted from a simultaneous fit to $H \to ZZ \to 4\ell$ events in both the \onshell and \offshell regions. The \onshell region follows Scheme 2 as defined in Reference~\cite{CMS:2021nnc}, where six mutually exclusive categories are used and anomalous Higgs interactions are set to zero. This fit yields two signal strength parameters, $\mu^\text{on-shell}_{F}$ and $\mu^\text{on-shell}_{V}$, as defined in Equations~(\ref{eq:ponshell}) and~(\ref{eq:poffshell}), corresponding to production via fermionic and vector boson couplings of the \Hboson, respectively. The Higgs boson mass is fixed to $m_H = 125.38$\,GeV~\cite{Sirunyan:2020xwk}.
 
 The observed and expected constraints on the Higgs boson width are presented in Table~\ref{table:widthoffshellcomb}, while the likelihood scan of $\Gamma_H$, obtained using the asymptotic approximation, is shown in Figure~\ref{fig:widthscan}. This measurement excludes the hypothesis of no off-shell Higgs boson production with a CL corresponding to 3.0 standard deviations (compared to an average expected 1.4).
 
@@ -894,7 +1208,7 @@ The results of this analysis with the SM-like couplings are also combined with t
 The observed and expected $\Gamma_H$ measurements are shown in Table~\ref{table:widthoffshellcomb} and Figure~\ref{fig:widthscan} and supersede the previous CMS results~\cite{CMS:2022ley} under the SM-like coupling assumption. These combined fit results rule out the scenario of no \offshell \Hboson production
 with a CL corresponding to 3.8 standard deviations (average expected 2.4).
 
-\begin{table*}[!htb]
+\begin{table*}[!hbt]
     \centering
     % \renewcommand{\arraystretch}{1.25}
     \begin{tabular}{lll}
@@ -908,9 +1222,9 @@ with a CL corresponding to 3.8 standard deviations (average expected 2.4).
     \label{table:widthoffshellcomb}
 \end{table*}
 
-\begin{figure}[!htb]
+\begin{figure}[!hbt]
     \centering
-    \includegraphics[width=0.8\textwidth]{Figure_011.pdf}  
+    \includegraphics[width=0.8\textwidth]{figures/Figure_011.pdf}  
     \caption{
         Observed (solid) and expected (dashed) profile likelihood projections from the \Hboson width fit using on- and off-shell production from this analysis. The analysis of the off-shell $H\to ZZ\to4\ell$ channel combined with the on-shell $H\to ZZ\to4\ell$ channel~\cite{CMS:2021nnc} is shown in black. The full combination of $H\to ZZ\to4\ell$ with the off-shell $H\to ZZ\to2\ell2\nu$~\cite{CMS:2022ley} is given in red. The black horizontal dashed lines show the 68 and 95\% CL values~\cite{PhysRevD.111.092014}.}
     \label{fig:widthscan} 
@@ -935,11 +1249,11 @@ A reduced number of events in this sensitive region favors the hypothesis of gre
 % The measured signal strengths are reported in Table~\ref{table:muoffshell} and a 2D scan of these parameters 
 % is presented in Figure~\ref{fig:muoffshell}. The observed limits on signal strength in the \offshell region are stronger than expected on average, following a trend similar to that previously discussed for $\Gamma_H$.
 
-An alternative approach to the \offshell region fit involves decoupling its signal strength from that of the \onshell region. In this configuration, the signal yield is scaled by a single parameter, $\mu^\text{off-shell}$, which is common to all production mechanisms. The total Higgs boson width is fixed to its SM value, $\Gamma_H = \Gamma_H^{\mathrm{SM}}$, in Eq.~(\ref{eq:poffshell}), and the SM expectation corresponds to $\mu^\text{off-shell} = 1$.
+An alternative approach to the \offshell region fit involves decoupling its signal strength from that of the \onshell region. In this configuration, the signal yield is scaled by a single parameter, $\mu^\text{off-shell}$, which is common to all production mechanisms. The total Higgs boson width is fixed to its SM value, $\Gamma_H = \Gamma_H^{\mathrm{SM}}$, in Equation~(\ref{eq:poffshell}), and the SM expectation corresponds to $\mu^\text{off-shell} = 1$. The likelihood scan for this parameter is presented in Figure~\ref{fig:1Dmus_off}.
 
-In addition, a more general fit is performed with two unconstrained signal strength parameters: $\mu^\text{off-shell}_{F}$ and $\mu^\text{off-shell}_{V}$, corresponding to gluon-fusion and electroweak production mechanisms, respectively. The measured values of these parameters are reported in Table~\ref{table:muoffshell}, and their joint CL regions are shown in the two-dimensional likelihood scan in Figure~\ref{fig:muoffshell}. The observed constraints on the \offshell signal strengths are stronger than the average expected values, consistent with the trend observed earlier in the $\Gamma_H$ analysis.
+In addition, a more general fit is performed with two unconstrained signal strength parameters: $\mu^\text{off-shell}_{F}$ and $\mu^\text{off-shell}_{V}$, corresponding to gluon-fusion and electroweak production mechanisms, respectively. The measured values of these parameters are reported in Table~\ref{table:muoffshell}, illustrated in Figures~\ref{fig:1Dmus_F} and \ref{fig:1Dmus_V}, and their joint CL regions are shown in the two-dimensional likelihood scan in Figure~\ref{fig:muoffshell}. The observed constraints on the \offshell signal strengths are stronger than the average expected values, consistent with the trend observed earlier in the $\Gamma_H$ analysis.
 
-\begin{table*}[!htb]
+\begin{table*}[!hbt]
 \centering
 % \renewcommand{\arraystretch}{1.6}
 \begin{tabular}{lcc}
@@ -956,7 +1270,40 @@ In addition, a more general fit is performed with two unconstrained signal stren
 \label{table:muoffshell}
 \end{table*}
 
-\begin{figure}[!htb]
+\begin{figure}[!hbt]
+\begin{center}
+\includegraphics[width=0.8\textwidth]{figures/scan_Roff_upd.pdf}
+\caption
+{
+Observed and expected ikelihood scans for $\mu^{\text{off-shell}}$ with the combination of $H\to4\ell$ and $H\to2\ell2\nu$ final states.
+\label{fig:1Dmus_off}
+}
+\end{center}
+\end{figure}
+
+\begin{figure}[!hbt]
+\begin{center}
+\includegraphics[width=0.8\textwidth]{figures/scan_muFoff_upd.pdf}
+\caption
+{
+Observed and expected ikelihood scans for $\mu_F^{\text{off-shell}}$ with the combination of $H\to4\ell$ and $H\to2\ell2\nu$ final states.
+\label{fig:1Dmus_F}
+}
+\end{center}
+\end{figure}
+
+\begin{figure}[!hbt]
+\begin{center}
+\includegraphics[width=0.8\textwidth]{figures/scan_muVoff_upd.pdf}
+\caption
+{
+Observed and expected ikelihood scans for $\mu_V^{\text{off-shell}}$ with the combination of $H\to4\ell$ and $H\to2\ell2\nu$ final states.
+\label{fig:1Dmus_V}
+}
+\end{center}
+\end{figure}
+
+\begin{figure}[!hbt]
   \centering
   \includegraphics[width=0.8\textwidth]{figures/Figure_012.pdf}  
   \caption
@@ -1002,11 +1349,62 @@ In addition, a more general fit is performed with two unconstrained signal stren
 
 The $\Gamma_H$ constraints presented in Section~\ref{sec:offshellwidth} assume SM-like evolution of the Higgs boson couplings across a wide $m_{4\ell}$ range. Anomalous contributions to the $HVV$ vertex in EW production and Higgs boson decay were investigated in earlier analyses using smaller datasets~\cite{Sirunyan:2019twz,CMS:2022ley}, and the resulting $\Gamma_H$ constraints remained consistent. However, both the current and previous analyses assume that the gluon-fusion production mechanism is dominated by the top quark loop. If additional heavy particles contribute to the loop, this assumption would no longer hold, and the $m_{4\ell}$ dependence in the \offshell region could be significantly modified.
 
-To explore the impact of potential contributions from new heavy particles in the $gg \to H$ loop, a hypothetical heavy quark $Q$ is introduced with an unconstrained coupling strength $\kappa_Q$, such as is described in Section~\ref{sec:kappa}~\cite{Gritsan:2020pib,Davis:2021tiv}. In the framework of effective field theory, the influence of such a particle is modeled as a point-like interaction that encapsulates its loop effects. The parametrization in Equation~(\ref{eq:poffshell}) is extended to include template components proportional to $\kappa_Q$ and $\kappa_Q^2$, obtained from simulations reweighted using the MELA package in the limit of infinite $Q$ mass. 
+To explore the impact of potential contributions from new heavy particles in the $gg \to H$ loop, a hypothetical heavy quark $Q$ is introduced with an unconstrained coupling strength $\kappa_Q$, such as is described in Section~\ref{sec:kappa}~\cite{Gritsan:2020pib,Davis:2021tiv}. In the framework of Effective Field Theory (EFT), the influence of such a particle is modeled as a point-like interaction that encapsulates its loop effects. The parametrization in Equation~(\ref{eq:poffshell}) is extended to include template components proportional to $\kappa_Q$ and $\kappa_Q^2$, obtained from simulations reweighted using the MELA package in the limit of infinite $Q$ mass. 
 
-The $m_{4\ell}$ distribution in the \offshell region exhibits different behaviors for SM-like gluon fusion—dominated by the top quark with the $2m_t$ threshold—and for scenarios involving the additional heavy quark $Q$~\cite{Gritsan:2020pib}. Allowing $\kappa_Q$ to vary freely introduces additional uncertainty in the $m_{4\ell}$ spectrum, which weakens the sensitivity to $\Gamma_H$. Nonetheless, both the \onshell and \offshell $H \to 4\ell$ data constrain the allowed values of $\kappa_Q$, and the resulting $\Gamma_H$ constraints remain broadly consistent with the $\kappa_Q = 0$ case.
+The $m_{4\ell}$ distribution in the \offshell region exhibits different behaviors for SM-like gluon fusion—dominated by the top quark with the $2m_t$ threshold—and for scenarios involving the additional heavy quark $Q$~\cite{Gritsan:2020pib}. Allowing $\kappa_Q$ to vary freely introduces additional uncertainty in the $m_{4\ell}$ spectrum, which weakens the sensitivity to $\Gamma_H$. Nonetheless, both the \onshell and \offshell $H \to 4\ell$ data constrain the allowed values of $\kappa_Q$, and the $\Gamma_H$ constraints remain broadly consistent with the $\kappa_Q = 0$ case.
 
-From the simultaneous fit to the \onshell and \offshell regions, the observed width is measured to be $\Gamma_H = 2.7^{+2.7}_{-1.8}$\,MeV, with an expected value of $4.1^{+5.5}_{-4.1}$\,MeV. The observed (expected) 95\% confidence interval is $[0.1,\,8.8]$\,MeV ($[\,{<}14.4]$\,MeV). Future combinations with measurements from other \onshell Higgs boson production and decay channels are expected to significantly improve constraints on $\kappa_Q$, thereby reducing the allowed deviations from SM-like coupling evolution across the high-$m_{4\ell}$ regime.
+From the simultaneous fit to the \onshell and \offshell regions, the observed width is measured to be $\Gamma_H = 2.7^{+2.7}_{-1.8}$\,MeV, with an expected value of $4.1^{+5.5}_{-4.1}$\,MeV. The observed (expected) 95\% confidence interval is $[0.1,\,8.8]$\,MeV ($[\,{<}14.4]$\,MeV), as illustrated in Figure~\ref{fig:kappa_width_scan}. Future combinations with measurements from other \onshell Higgs boson production and decay channels are expected to significantly improve constraints on $\kappa_Q$, thereby reducing the allowed deviations from SM-like coupling evolution across the high-$m_{4\ell}$ regime.
+
+\begin{figure}[!hbt]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/Gamma_scan.pdf}
+    \caption{
+   Likelihood scan of the SM-like \Hboson width from Fig.~\ref{fig:widthscan} (black) as well as with $\kappa_Q$ unconstrained (blue).
+    }
+    \label{fig:kappa_width_scan}
+\end{figure}
+
+Utilizing Equations~\ref{eq:KappaMu} and \ref{eq:KappaMu2}, we can also consider likelihood scans of the parameters $\mu_F$ and $\mu_V$ in Figures~\ref{fig:kappa_muF_scan} and \ref{fig:kappa_muV_scan}, respectively, with and without including $\kappa_Q$ unconstrained. The numerical results are outlined in Table~\ref{table:offshellKappa}.\\
+
+\begin{table}[!hbt]
+\centering
+% \renewcommand{\arraystretch}{1.25}
+\begin{tabular}{llll}
+\hline
+Parameter       &     Configuration     & {Observed}          &  {Expected}   \\
+\hline
+$\mu_F$     & $\kappa_Q$ floated & $1.01^{+1.40}_{-0.41} ~[0.23,9.28]$   &  $1.00^{+5.49}_{-0.91} ~[0.80,1.21]$ \\
+$\mu_F$     & $\kappa_Q=0$       & $0.87^{+0.09}_{-0.09} ~[0.69,1.08]$   &  $1.00^{+0.11}_{-0.10} ~[ < 15.88]$  \\
+$\mu_V$     & $\kappa_Q$ floated & $1.05^{+0.44}_{-0.37} ~[0.35,1.98]$   &  $1.00^{+0.46}_{-0.40} ~[0.27,1.96]$  \\
+$\mu_V$     & $\kappa_Q=0$       & $1.04^{+0.43}_{-0.37} ~[0.35,1.96]$   &  $1.00^{+0.46}_{-0.40} ~[0.27,1.96]$  \\
+% $\kappa_Q$  & $\kappa_Q$ floated & $-0.06^{+0.28}_{-0.38} ~[-0.91,0.50]$ &  $0.00^{+0.58}_{-0.98} ~[-2.30,1.04]$  \\
+% $\kappa_Q$  & $\kappa_Q=0$       & 0                                     &  0  \\
+\hline
+\end{tabular}
+\caption{
+Summary of constraints at 68\%~CL (central values with uncertainties) and 95\%~CL (in square brackets) on the parameters $\mu_F$ and $\mu_V$ with and without including $\kappa_Q$ unconstrained.}
+\label{table:offshellKappa}
+\end{table}
+
+\begin{figure}[!hbt]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/observed_muF.pdf}
+    \caption{Observed and expected likelihood scans of $\mu_F$ with $\kappa_Q$ unconstrained (blue) and with $\kappa_Q=0$ (black).}
+    \label{fig:kappa_muF_scan}
+\end{figure}
+
+\begin{figure}[!hbt]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/observed_muV.pdf}
+    \caption{Observed and expected likelihood scans of $\mu_V$ with $\kappa_Q$ unconstrained (blue) and with $\kappa_Q=0$ (black).}
+    \label{fig:kappa_muV_scan}
+\end{figure}
+
+It is worth noting that the constraints on $\mu_V$ remains largely unaffected by $\kappa_Q$ being floated or fixed, whereas the constraints on $\mu_F$ exhibit significant variation. This is because the EW production mechanism, characterized by $\mu_V$, is independent of $\kappa_Q$, whereas the ggH process is strongly influenced by both $\kappa_Q$ and $\kappa_q$---the latter being related to $\mu_F$ through Equation~(\ref{eq:KappaMu2}).
+
+% A strong correlation is therefore expected between $\kappa_Q$ and $\mu_F$, as both parameters directly affect the normalization of the gluon fusion signal. In fact, these two parameters become nearly degenerate in the on-shell signal strength parameterization given in Eq.~(\ref{eq:kg2}), since variations in one can be compensated by the other. However, the presence of top-initiated processes, such as $t\bar{t}H$ production, helps break this degeneracy and introduces sensitivity to $\mu_F$ that is not replicated by $\kappa_Q$ alone.
+
+% The constraints on $\kappa_Q$ arise from a combination of on-shell and off-shell production processes. The characteristic shape of the off-shell region, particularly the positive interference with the background at higher $m_{4\ell}$ values—illustrated in Fig.~\ref{fig:kappaQ}—places additional restrictions on the allowed values of $\kappa_Q$. Nevertheless, the statistical power of the off-shell measurement remains limited, which in turn affects the overall confidence level of the constraint.
 
 \subsection{Other measurements}
 
@@ -1027,7 +1425,7 @@ Combining all the $m_{4\ell}$ final states and data-taking years, our final resu
 $m_H = 125.04~\pm~0.11$ (stat)$~\pm~0.05$ (syst) = $125.04~\pm~0.12$ GeV.
 The largest systematic uncertainty is from the lepton momentum scale and equals 0.03 and 0.04 GeV for final states with muons and electrons, respectively.
 
-% \begin{table*}[!htb]	
+% \begin{table*}[!hbt]	
 %   \centering
 %   \topcaption{
 %     Best fit values for the mass of the \Hboson measured in the inclusive 4$\ell$ final state and separately for different flavor categories using the 1D approach.
@@ -1047,9 +1445,10 @@ The largest systematic uncertainty is from the lepton momentum scale and equals 
 %   \label{table:Mass1Dresults}
 % \end{table*}
 
-\begin{table*}[!htb]	
+\begin{table*}[!hbt]	
   \centering
   % \renewcommand{\arraystretch}{1.6}
+    \small
     \begin{tabular}{lccc}
       $4\ell$ category & Observed ($\pm$stat$\pm$syst) (GeV) & Expected uncertainty ($\pm$stat$\pm$syst) (GeV)  \\
       \hline
@@ -1063,9 +1462,9 @@ The largest systematic uncertainty is from the lepton momentum scale and equals 
   \label{table:Mass_results}
 \end{table*}
 
-\begin{figure}[!htb]
+\begin{figure}[!hbt]
   \centering
-  \includegraphics[width=0.8\textwidth]{Figure_008.pdf}
+  \includegraphics[width=0.8\textwidth]{figures/Figure_008.pdf}
   \caption{The profile likelihood from the $m_H$ fit using the comprehensive on-shell model for each of the 4$\ell$ categories and combined.  The change in likelihood corresponding to 68 and 95\% CLs are shown by the dashed horizontal lines. Both statistical and systematic uncertainties are included in the fits~\cite{PhysRevD.111.092014}.}
   \label{MassLikelihoodScan}
 \end{figure}
@@ -1077,11 +1476,11 @@ The largest systematic uncertainty is from the lepton momentum scale and equals 
 The results from this analysis are combined with those extracted using data recorded with the  
 CMS detector during Run 1 at $\sqrt{s}= 7$ and 8 TeV~\cite{Chatrchyan:2013mxa}. 
 Since this analysis uses an improved method to extract the systematic uncertainties affecting lepton momentum, 
-the lepton energy scales and resolution uncertainties are considered uncorrelated between the two runs. The combined observed result from both data-taking periods is $m_H$ = 125.08 $\pm$ 0.12 GeV = 125.08 $\pm$ 0.10\stat $\pm$ 0.05\syst GeV. The corresponding expected statistical and systematic uncertainties are $\pm$0.10 and $\pm$0.05 GeV, respectively. Figure~\ref{Run1Run2_scan} presents a summary of the \Hboson mass measurements by the CMS Collaboration in the four-lepton decay channel.
-
-\begin{figure*}[!htb]
+the lepton energy scales and resolution uncertainties are considered uncorrelated between the two runs. The combined observed result from both data-taking periods is $m_H$ = 125.08 $\pm$ 0.10 (stat) $\pm$ 0.05 (syst) GeV = 125.08 $\pm$ 0.12 GeV. Figure~\ref{Run1Run2_scan} presents a summary of the \Hboson mass measurements by the CMS Collaboration in the four-lepton decay channel.
+ % The corresponding expected statistical and systematic uncertainties are $\pm$0.10 and $\pm$0.05 GeV, respectively.
+\begin{figure*}[!hbt]
   \centering
-  \includegraphics[width=0.8\textwidth]{Figure_009.pdf}
+  \includegraphics[width=0.8\textwidth]{figures/Figure_009.pdf}
   \caption{Summary of the CMS Higgs boson mass measurements using the four-lepton final state. The red vertical line and the gray column represent the best fit value and the total uncertainty, respectively, as measured by combining Run 1 and Run 2 data. The yellow band and horizontal black bars show the statistical and total uncertainties in each measurement, respectively. The value of each measurement is given, along with the total and statistical only (in parentheses) uncertainties~\cite{PhysRevD.111.092014}.}
   \label{Run1Run2_scan}
 \end{figure*}
@@ -1092,7 +1491,7 @@ The final \onshell model is also used for an on-shell-only Higgs boson width mea
 
 The observed (expected) upper limit on $\Gamma_H$ is 50\,(320)\,MeV at 68\% CL and 330\,(640)\,MeV at 95\% CL. Although the observed limit is significantly lower than the expected one, both are statistically compatible. The resulting distribution of 1-CL as a function of $\Gamma_H$ is shown in Figure~\ref{OnShell_width}. This measurement is statistically limited; the dominant uncertainty arises from statistical fluctuations, while the leading systematic uncertainty is driven by the lepton momentum resolution.
 
-\begin{figure}[!htb]
+\begin{figure}[!hbt]
   \centering
   \includegraphics[width=0.8\textwidth]{figures/Figure_010.pdf}
   \caption{Distribution of 1-CL versus $\Gamma_H$ from the fit used to measure the Higgs boson width using on-shell production only. The CL values shown by the points are extracted using the Feldman-Cousins approach. The vertical bars on the points represent the spread in the simulated pseudo-experiment outcomes. The 68\% and 95\% CL thresholds are indicated by the dashed horizontal lines~\cite{PhysRevD.111.092014}.}
