@@ -102,7 +102,7 @@ The CMS detector is built around a large superconducting solenoid, for which it 
 A useful analogy is that CMS effectively acts like a high-speed camera, taking 3-dimensional ``snapshots'' of particle collision events in all directions up to 40 million times each second. Although most of the initial collision products decay rapidly, the stable products can be detected by CMS as they travel away from the beamline. By identifying the stable particles produced in each collision and then piecing them together, the detector can reconstruct an understanding of the collision which can then be analyzed to identify constituent physics phenomena \cite{Karimaki:368412, CERN-LHCC-2000-016, Chatrchyan:1129810, Collaboration:2745805, CERN-LHCC-2017-009}.
 
 \subsection{Solenoid}
-The eponymous superconducting solenoid is central to the construction and operation of CMS, and features an internal diameter of 6 m. As the largest superconducting magnet ever built, it has a total mass of 12,000 tonnes and is cooled to 1.9 K ($-268.5^\circ$C), approaching the temperature of deep space. It also generates a uniform magnetic field of 3.8 T, which is approximately $10^5$ times stronger than the Earth's magnetic field.
+The eponymous superconducting solenoid is central to the construction and operation of CMS, and features an internal diameter of 6 m. As the largest superconducting magnet ever built, its coils and return yoke weigh in at 12,500 tonnes and it is cooled to 1.9 K ($-268.5^\circ$C), approaching the temperature of deep space. It also generates a uniform magnetic field of 3.8 T, which is approximately $10^5$ times stronger than the Earth's magnetic field.
 
 \begin{figure}[!hbt]
     \begin{center}
@@ -131,7 +131,7 @@ The CMS tracker is designed to precisely record charged particle trajectories wh
 \begin{figure}[!hbt]
     \begin{center}
         \includegraphics[width=0.75\textwidth,clip] {TrackerLayoutWithLAS2.png}
-        \caption{Schematic view of one quarter of the silicon tracker in the r-z plane~\cite{Adam:2748381}. This thesis utilized data from LHC Run 2 after the Phase-1 upgrades to the tracker.}
+        \caption{Schematic view of one quarter of the silicon tracker in the r-z plane~\cite{Adam:2748381}, showing the difference between the original design and the Phase-1 upgrade~\cite{Collaboration:1355706, CMS:2012sda}. This thesis utilized data from LHC Run 2 after the Phase-1 upgrades to the tracker.}
         \label{fig:silicontracker}
     \end{center}
 \end{figure}
@@ -409,7 +409,7 @@ By integrating GEMs into the CMS muon system, the experiment enhances its abilit
 
 At the LHC design luminosity, the proton-proton ($pp$) collision rate exceeds $1\,\mathrm{GHz}$, but only a small fraction of these events are relevant to CMS physics research. Due to storage and computational constraints, only a limited subset can be retained for offline analysis. Efficient event reconstruction is crucial for identifying key physics objects, such as muons, electrons, and jets, within the most significant events.
 
-Muon detection is central to the CMS trigger system, as high-energy muons often signal rare processes, including potential BSM physics. With a bunch crossing rate of $40\,\mathrm{MHz}$, the LHC generates approximately $10^9$ $pp$ interactions per second. Given that each recorded event averages $1.5\,\mathrm{MB}$ and only $\mathcal{O}(100)$ events per second can be stored, the trigger system must achieve an event rejection factor of $\mathcal{O}(10^6)$ while maintaining high efficiency for key signals.
+Muon detection is central to the CMS trigger system, as high-energy muons often signal rare processes, including potential BSM physics. With a bunch crossing rate of $40\,\mathrm{MHz}$, the LHC generates approximately $10^9$ pp interactions per second. Given that each recorded event averages $1.5\,\mathrm{MB}$ and only $\mathcal{O}(1000)$ events per second can be stored, the trigger system must achieve an event rejection factor of $\mathcal{O}(10^6)$ while maintaining high efficiency for key signals.
 
 The CMS trigger system reduces the event rate in real time while preserving sensitivity to rare physics processes. It consists of two stages: the Level-1 (L1) trigger, implemented in custom hardware, and the High-Level Trigger (HLT), which runs software algorithms on a computing farm. Together, these systems ensure that only the most relevant events are stored for analysis~\cite{Cittolin:578006}.
 
@@ -417,15 +417,15 @@ The CMS trigger system reduces the event rate in real time while preserving sens
 
 The L1 trigger rapidly processes detector signals to identify candidate physics objects, such as electromagnetic energy deposits, hadronic jets, and ionization patterns from muons. To manage the $100\,\mathrm{kHz}$ output limit of CMS readout electronics, the trigger dynamically adjusts selection thresholds based on the LHC's instantaneous luminosity.
 
-Using coarse-grained detector data, the L1 trigger selects events with high transverse momentum particles and anomalous energy deposits. Muon chambers—including Drift Tubes (DT), Cathode Strip Chambers (CSC), and Resistive Plate Chambers (RPC)—provide initial $p_T$ estimates for candidate muons. Operating within a strict latency of a few microseconds, the L1 trigger ensures rapid event selection in the LHC’s high-rate environment.
+Using coarse-grained detector data, the L1 trigger selects events with high transverse momentum particles and anomalous energy deposits. Muon chambers---including Drift Tubes (DT), Cathode Strip Chambers (CSC), and Resistive Plate Chambers (RPC)---provide initial $p_T$ estimates for candidate muons. Operating within a strict latency of a few microseconds, the L1 trigger ensures rapid event selection in the LHC’s high-rate environment. The LHC delivers bunch crossings at 40 MHz, and the L1 trigger reduces the incoming event rate to $\sim100\,\mathrm{kHz}$.
 
-\subsection{High-Level Trigger (HLT)}
+\subsection{High-Level Trigger}
 
-The HLT refines L1 selections by incorporating full-granularity detector data and advanced reconstruction algorithms. For muon identification, it integrates muon chamber signals with precise silicon tracker measurements, improving momentum resolution and suppressing background. By applying more stringent selection criteria, the HLT ensures that only the most promising events are retained for physics analyses.
+The High-Level Trigger (HLT) refines L1 selections by incorporating full-granularity detector data and advanced reconstruction algorithms. For muon identification, it integrates muon chamber signals with precise silicon tracker measurements, improving momentum resolution and suppressing background. By applying more stringent selection criteria, the HLT ensures that only the most promising events are retained for physics analyses.
 
-Events passing the L1 trigger are transferred to front-end readout buffers before being processed by the HLT on a dedicated computing farm. The HLT software further reduces the event rate from $100\,\mathrm{kHz}$ to $100\,\mathrm{Hz}$ for mass storage. Event selection follows a staged approach: initial decisions rely on calorimeter and muon system data, followed by inner tracker pixel information, and ultimately, full event reconstruction when necessary.
+Events passing the L1 trigger are transferred to front-end readout buffers before being processed by the HLT on a dedicated computing farm. The HLT software further reduces the event rate from $100\,\mathrm{kHz}$ to $1\,\mathrm{kHz}$ for mass storage. Event selection follows a staged approach: initial decisions rely on calorimeter and muon system data, followed by inner tracker pixel information, and ultimately, full event reconstruction when necessary.
 
-To optimize storage efficiency, events are categorized into non-exclusive data streams based on High-Level Trigger (HLT) decisions. Most data undergo immediate processing, while lower-priority datasets can be deferred using a technique known as ``parking.'' This capability allows CMS to record additional data on tape at the expense of increased processing latency.
+To optimize storage efficiency, events are categorized into non-exclusive data streams based on HLT decisions. Most data undergo immediate processing, while lower-priority datasets can be deferred using a technique known as ``parking.'' This capability allows CMS to record additional data on tape at the expense of increased processing latency.
 
 \section{Computing}
 
@@ -462,7 +462,7 @@ The reconstructed list of individual particles serves as the foundation for high
 
 \section{Alignment of the CMS Tracker}
 
-As aforementioned, the precision of the silicon tracker is critical to CMS, especially in measuring the trajectories of particles within our solenoid. The alignment of the tracker was also crucial to our research group, which contributes to the experimental service effort and is the sole maintainer of one of primary tracker alignment algorithms. During the course of my thesis, I ran alignment campaigns and validated alignment candidates, as well as provided some updates to our alignment algorithm ``HipPy''---these efforts are described in Section~\ref{sec:alignment}.
+As aforementioned, the precision of the silicon tracker is critical to CMS, especially in measuring the trajectories of particles within our solenoid. The alignment of the tracker was also crucial to our research group, which contributes to the experimental service effort and is the sole maintainer of one of primary tracker alignment algorithms. Over the course of my thesis, I ran alignment campaigns and validated alignment candidates, as well as provided some updates to our Hits-and-Impact-Points alignment algorithm also known as ``HipPy''---the algorithm and my efforts are described in Sections~\ref{sec:alignalgo}~and~\ref{sec:alignment}, respectively.
 
 \subsection{Parameterization}
 
@@ -532,7 +532,7 @@ Initially, the rotation matrix $\mathbf{R}$ and the detector positions $\mathbf{
 
 
 
-\subsection{Algorithms}
+\subsection{Algorithms}\label{sec:alignalgo}
 
 Two primary algorithms are used by CMS to minimize track-hit residuals and improve alignment: Millepede and HipPy. 
 
@@ -730,19 +730,78 @@ Geometry comparisons provide a direct and effective means of visualizing differe
 Unphysical distortions, identifiable through detector design constraints, can signal biases in the alignment procedure. The geometry comparison framework, adapted from HipPy’s optical survey constraint tools, aligns two geometries by applying translations and rotations before computing their differences. 
 % , treating the residuals as survey constraints.  
 
-To facilitate meaningful comparisons, global shifts and rotations of large structures are removed, allowing for precise measurement of module displacements, denoted as \( \Delta z \), \( \Delta r \), and \( \Delta \phi \), as functions of \( z \), \( r \), and \( \phi \), respectively. Additionally, the remaining three spatial coordinates (\( x \), \( y \), and \( z \)) and three angular rotations can also be visualized in a similar manner. Since geometry comparison validation does not rely on reconstructed track data, it can be applied universally with respect to any reference geometry, including design, survey, or previously aligned track-based geometries.
+To facilitate meaningful comparisons, global shifts and rotations of large structures are removed, allowing for precise measurement of module displacements, denoted as \( \Delta z \), \( \Delta r \), and \( \Delta \phi \), as functions of \( z \), \( r \), and \( \phi \), respectively. Additionally, the remaining three spatial coordinates (\( x \), \( y \), and \( z \)) and three angular rotations can also be visualized in a similar manner. Since geometry comparison validation does not rely on reconstructed track data, it can be applied universally with respect to any reference geometry, including design, survey, or previously aligned track-based geometries. An example of such a validation is shown in Figure~\ref{fig:global_tracker_1_final}.
+
+\begin{figure}[!hbt]
+    \begin{center}
+        \includegraphics[width=1\textwidth] {global_tracker_1_final.pdf}
+        \caption{Example global tracker plot for GC validation, comparing analogous HipPy and Millepede alignments using beam data, both calculated from PromptGT.}
+        % ~\cite{WeeklyTr66:online}
+        \label{fig:global_tracker_1_final}
+    \end{center}
+\end{figure}
 
 \subsubsection{Distribution of the Median of Residuals}
 
 By analyzing each module individually, the distributions of the median of residuals (DMRs) provide a measure of alignment improvement across subdetectors. This method involves refitting each track using all hits except for the one associated with the module under study. The residual, defined as the difference between the predicted and measured hit positions, is computed for each track, and the median of this distribution serves as a representative statistic for the module. These median residuals are then plotted across all modules, allowing for a comprehensive alignment evaluation.
 
-To study various sources of bias, DMR validation is performed separately for the local \( x \) and \( y \) coordinates. A well-aligned detector should produce a DMR distribution centered around zero, with its width reflecting the statistical precision of the alignment (assuming a large enough sample of hits is used for validation). Deviations from zero suggest systematic biases, while a broader width indicates limitations in alignment accuracy. Since the width also depends on the sample size, valid comparisons require that all datasets have identical track statistics, as ensured in the validation process.
+To study various sources of bias, DMR validation is performed separately for the local \( x \) and \( y \) coordinates. A well-aligned detector should produce a DMR distribution centered around zero, with its width reflecting the statistical precision of the alignment (assuming a large enough sample of hits is used for validation). Deviations from zero suggest systematic biases, while a broader width indicates limitations in alignment accuracy. Since the width also depends on the sample size, valid comparisons require that all datasets have identical track statistics, as ensured in the validation process. Examples of DMR validation are shown in Figures~\ref{fig:DmedianR_BPIX_plain},~\ref{fig:DmedianR_FPIX_plain},~\ref{fig:DmedianYR_BPIX_plain},~\ref{fig:DmedianYR_FPIX_plain},~and~\ref{fig:2023_CRUZET_BPIX}.
+
+\begin{figure}[!hbt]
+    \begin{center}
+        \includegraphics[width=0.9\textwidth,clip] {DmedianR_BPIX_plain.pdf}
+        \caption{Example DMR validation plot for x residual in the BPIX, comparing HipPy (blue) and Millepede (red) alignments using beam data, both calculated from the starting geometry of PromptGT (black).}
+        % ~\cite{WeeklyTr66:online}
+        \label{fig:DmedianR_BPIX_plain}
+    \end{center}
+\end{figure}
+\begin{figure}[!hbt]
+    \begin{center}
+        \includegraphics[width=0.9\textwidth,clip] {DmedianR_FPIX_plain.pdf}
+        \caption{Example DMR validation plot for x residual in the FPIX, comparing HipPy (blue) and Millepede (red) alignments using beam data, both calculated from the starting geometry of PromptGT (black).}
+        % ~\cite{WeeklyTr66:online}
+        \label{fig:DmedianR_FPIX_plain}
+    \end{center}
+\end{figure}
+\begin{figure}[!hbt]
+    \begin{center}
+        \includegraphics[width=0.9\textwidth,clip] {DmedianYR_BPIX_plain.pdf}
+        \caption{Example DMR validation plot for y residual in the BPIX, comparing HipPy (blue) and Millepede (red) alignments using beam data, both calculated from the starting geometry of PromptGT (black).}
+        % ~\cite{WeeklyTr66:online}
+        \label{fig:DmedianYR_BPIX_plain}
+    \end{center}
+\end{figure}
+\begin{figure}[!hbt]
+    \begin{center}
+        \includegraphics[width=0.9\textwidth,clip] {DmedianYR_FPIX_plain.pdf}
+        \caption{Example DMR validation plot for y residual in the FPIX, comparing HipPy (blue) and Millepede (red) alignments using beam data, both calculated from the starting geometry of PromptGT (black).}
+        % ~\cite{WeeklyTr66:online}
+        \label{fig:DmedianYR_FPIX_plain}
+    \end{center}
+\end{figure}
 
 \subsubsection{Primary Vertex}
 
 The quality of tracker alignment is further assessed through its impact on the performance of physics objects, particularly the reconstruction of the primary vertex (PV). The PV, typically defined as the vertex associated with the track of highest transverse momentum (\( p_T \)), is primarily determined by the pixel detector, as it is closest to the interaction point and offers the best intrinsic hit position resolution. 
 
-The precision of vertex reconstruction is evaluated using unbiased track-vertex residuals, also known as track impact parameters, which provide a direct measurement based on data. For each track, the PV position is reconstructed while excluding the track under consideration. To ensure robustness against pileup, a deterministic annealing clustering algorithm is utilized. 
+The precision of vertex reconstruction is evaluated using unbiased track-vertex residuals, also known as track impact parameters, which provide a direct measurement based on data. For each track, the PV position is reconstructed while excluding the track under consideration. To ensure robustness against pileup, a deterministic annealing clustering algorithm is utilized. Examples of PV validation are shown in Figures~\ref{fig:BiasesCanvas_PromptGT_vs_mp3588_vs_hp3252}~and~\ref{fig:BiasesCanvasLayer1_PromptGT_vs_mp3588_vs_hp3252}.
+
+\begin{figure}[!hbt]
+    \begin{center}
+        \includegraphics[width=0.9\textwidth,clip] {BiasesCanvas_PromptGT_vs_mp3588_vs_hp3252.pdf}
+        \caption{Example PV validation plot for PIX, comparing HipPy (blue) and Millepede (red) alignments using beam data, both calculated from the starting geometry of PromptGT (black).}
+        % ~\cite{WeeklyTr66:online}
+        \label{fig:BiasesCanvas_PromptGT_vs_mp3588_vs_hp3252}
+    \end{center}
+\end{figure}
+\begin{figure}[!hbt]
+    \begin{center}
+        \includegraphics[width=0.9\textwidth,clip] {BiasesCanvasLayer1_PromptGT_vs_mp3588_vs_hp3252.pdf}
+        \caption{Example PV validation plot for BPIX Layer 1, comparing HipPy (blue) and Millepede (red) alignments using beam data, both calculated from the starting geometry of PromptGT (black).}
+        % ~\cite{WeeklyTr66:online}
+        \label{fig:BiasesCanvasLayer1_PromptGT_vs_mp3588_vs_hp3252}
+    \end{center}
+\end{figure}
 
 \subsubsection{Cosmic Track Splitting}
 
@@ -751,6 +810,22 @@ Cosmic ray muons, often referred to as cosmics or cosmic events, recorded by the
 Tracks from cosmic ray muons are crucial for deriving alignment constants for two main reasons. First, they can be recorded before the start of LHC collisions and are therefore used to derive the initial alignment corrections after a shutdown period. Second, they have a very different topology compared to collision tracks. Unlike collision tracks, cosmic ray muon tracks traverse the entire detector and connect modules in the top and bottom halves of the tracker. This breaks the cylindrical symmetry typical of collision tracks and helps to constrain several types of distortions.
 
 Throughout Run 2, cosmic ray muon events were recorded before the start of LHC collisions during dedicated commissioning runs and in the time intervals between two LHC fills (interfill runs). Since 2018, cosmic events have also been recorded during collision data-taking.
+
+\begin{figure}[!hbt]
+\centering
+\begin{subfigure}[t]{0.37\textwidth}
+    \includegraphics[width=\textwidth]{figures/CRAFT-2022_1.png}
+    \caption{}
+    \label{fig:cosmicside}
+\end{subfigure}
+\begin{subfigure}[t]{0.53\textwidth}
+    \includegraphics[width=\textwidth]{figures/CRAFT-2022_0.png}
+    \caption{}
+    \label{fig:cosmicfront}
+\end{subfigure}
+\caption{Muons generated by cosmic rays are extremely important for the commissioning and the alignment of CMS. Despite being 100 m underground, every second hundreds of muons generated on top of the atmosphere cross CMS. Presented are two views, transverse (left) and longitudinal (right), of a single cosmic ray event~\cite{Collaboration:2806755}.}
+\label{fig:cosmicevent}
+\end{figure}
 
 % The resolution of track parameters can be validated using cosmic ray muon tracks by independently reconstructing the upper and lower segments of each track as it traverses the tracker. By comparing the track parameters at the point of closest approach to the nominal beamline, systematic differences between the two halves can indicate misalignment. This procedure is particularly powerful because the two halves of a given cosmic ray track should have identical parameters at the beamline, since they should form a straight line through the detector. Cosmic ray tracks effectively mimic standard collision tracks originating from the same point, but independent of beam collision data.
 
@@ -774,7 +849,7 @@ Aside from assisting with occasional beam spot calculations, most of my service 
 Alignment work began with the resurrection of the HipPy workflow and running of the first CRUZET alignments in 2021. We also began using CRAFT and beam data to align the pixel and strip detectors with HipPy. I initiated documentation of the HipPy software and alignment validation. I also performed validation of our results against the Millepede analogs for alignment of high-level structures (HLS) in the pixel detector as well as alignment of the pixel ladders (inside the BPIX), pixel panels (inside the FPIX), and strip HLS (TIB, TOB, TID, and TEC). 
 
 % HipPy achieved performance comparable to that of Millepede for the alignment of pixel HLS~\cite{WeeklyTr72:online, WeeklyTr25:online}. Our results lagged behind Millepede in the alignment of additional modules, but this was consistent with our expectations due to the limited number of iterations we were able to run with HipPy at the time (which would be improved by software updates I made later). As such, we continued to run alignments with HipPy to cross-check future Millepede results. 
-HipPy achieved performance comparable to that of Millepede for the alignment of pixel HLS. Our results lagged behind Millepede in the alignment of additional modules, but this was consistent with our expectations due to the limited number of iterations we were able to run with HipPy at the time (which would be improved by software updates I made later). As such, we continued to run alignments with HipPy to cross-check future Millepede results. 
+HipPy achieved performance comparable to that of Millepede for the alignment of pixel HLS. Our results lagged behind Millepede in the alignment of additional modules, but this was consistent with our expectations due to the limited number of iterations we were able to run with HipPy at the time (later improved as described in Section~\ref{sec:hippyupdates}). As such, we continued to run alignments with HipPy to cross-check future Millepede results. 
 
 % We attempted to produce any alignment with CRAFT+beam. Recreate mp3448. Failed for seemingly random numbers of iterations. 
 
@@ -861,68 +936,11 @@ I also contributed to the alignment of the tracker during 2023 commissioning and
 
 The BS represents the average interaction region of proton-proton collisions in CMS and serves as a critical reference point for tracking and vertexing. Precise knowledge of the BS position is essential for computing impact parameters, reconstructing primary vertices, and validating alignment parameters. During alignment updates (particularly those affecting the HLT) the most up-to-date beam spot conditions are needed to ensure consistency in the Full Track Validation (FTV), to evaluate the performance of track reconstruction. As part of my contributions to CMS tracker alignment, I derived and plotted BS payloads for several alignment candidates, in collaboration with the Millepede team.
 
-\subsubsection{HipPy Updates}
+\subsubsection{HipPy Updates}\label{sec:hippyupdates}
 
 % While working with the HipPy algorithm, we have slowly been making upgrades and investigating how to improve its performance for tracker alignment (particularly when using multiple datasets). The latter is still ongoing, but I have been able to modernize the HipPy code to improve functionality and ease of use. Through an update to the official CMS Software (CMSSW) repository, I improved the usability of the codebase by implementing bug fixes and updating the HipPy algorithm to python3. I also modified the HipPy scripts to log additional information about submitted alignment jobs, track ongoing processes without requiring persistent sessions, and avoid interruptions of the algorithm to aid in the execution of more iterations and consequently achieve better alignment performance~\cite{WeeklyTr41:online}. 
-While working with the HipPy algorithm, we have slowly been making upgrades and investigating how to improve its performance for tracker alignment (particularly when using multiple datasets). The latter is still ongoing, but I have been able to modernize the HipPy code to improve functionality and ease of use. Through an update to the official CMS Software (CMSSW) repository, I improved the usability of the codebase by implementing bug fixes and updating the HipPy algorithm to python3. I also modified the HipPy scripts to log additional information about submitted alignment jobs, track ongoing processes without requiring persistent sessions, and avoid interruptions of the algorithm to aid in the execution of more iterations and consequently achieve better alignment performance. 
+While working with the HipPy algorithm, we have been making upgrades and investigating how to improve its performance for tracker alignment (particularly when using multiple datasets). While the latter is ongoing, I have modernized parts of the HipPy code to improve functionality and ease of use. Through an update to the official CMS Software (CMSSW) repository, I improved the usability of the codebase by implementing bug fixes and updating the HipPy algorithm to python3. I also modified the execution scripts to log additional information about submitted alignment jobs, track ongoing processes without requiring persistent sessions, and avoid interruptions of the algorithm to aid in the calculation of more iterations and consequently achieve better alignment performance. 
 
 % I had previously presented the HipPy algorithm at the Second CMS Tracker Alignment Workshop, in preparation for our contributions to tracker alignment in Run~3~\cite{CMSTrack15:online}. After implementing my HipPy updates, I gave a follow-up presentation with a working example of aligning the pixel half-barrel and half-cylinder at the CMS Tracker Training Days~\cite{TrackerT67:online}.
-I had previously presented the HipPy algorithm at the Second CMS Tracker Alignment Workshop, in preparation for our contributions to tracker alignment in Run~3. After implementing my HipPy updates, I gave a follow-up presentation with a relevant and interactive example of aligning the pixel half-barrel and half-cylinder at the CMS Tracker Training Days.
-
-\begin{figure}[!hbt]
-    \begin{center}
-        \includegraphics[width=0.9\textwidth,clip] {DmedianR_BPIX_plain.pdf}
-        \caption{Example DMR validation plot for x residual in the BPIX, comparing HipPy (blue) and Millepede (red) alignments using beam data, both calculated from the starting geometry of PromptGT (black).}
-        % ~\cite{WeeklyTr66:online}
-        \label{fig:DmedianR_BPIX_plain}
-    \end{center}
-\end{figure}
-\begin{figure}[!hbt]
-    \begin{center}
-        \includegraphics[width=0.9\textwidth,clip] {DmedianR_FPIX_plain.pdf}
-        \caption{Example DMR validation plot for x residual in the FPIX, comparing HipPy (blue) and Millepede (red) alignments using beam data, both calculated from the starting geometry of PromptGT (black).}
-        % ~\cite{WeeklyTr66:online}
-        \label{fig:DmedianR_FPIX_plain}
-    \end{center}
-\end{figure}
-\begin{figure}[!hbt]
-    \begin{center}
-        \includegraphics[width=0.9\textwidth,clip] {DmedianYR_BPIX_plain.pdf}
-        \caption{Example DMR validation plot for y residual in the BPIX, comparing HipPy (blue) and Millepede (red) alignments using beam data, both calculated from the starting geometry of PromptGT (black).}
-        % ~\cite{WeeklyTr66:online}
-        \label{fig:DmedianYR_BPIX_plain}
-    \end{center}
-\end{figure}
-\begin{figure}[!hbt]
-    \begin{center}
-        \includegraphics[width=0.9\textwidth,clip] {DmedianYR_FPIX_plain.pdf}
-        \caption{Example DMR validation plot for y residual in the FPIX, comparing HipPy (blue) and Millepede (red) alignments using beam data, both calculated from the starting geometry of PromptGT (black).}
-        % ~\cite{WeeklyTr66:online}
-        \label{fig:DmedianYR_FPIX_plain}
-    \end{center}
-\end{figure}
-\begin{figure}[!hbt]
-    \begin{center}
-        \includegraphics[width=0.9\textwidth,clip] {BiasesCanvas_PromptGT_vs_mp3588_vs_hp3252.pdf}
-        \caption{Example PV validation plot for PIX, comparing HipPy (blue) and Millepede (red) alignments using beam data, both calculated from the starting geometry of PromptGT (black).}
-        % ~\cite{WeeklyTr66:online}
-        \label{fig:BiasesCanvas_PromptGT_vs_mp3588_vs_hp3252}
-    \end{center}
-\end{figure}
-\begin{figure}[!hbt]
-    \begin{center}
-        \includegraphics[width=0.9\textwidth,clip] {BiasesCanvasLayer1_PromptGT_vs_mp3588_vs_hp3252.pdf}
-        \caption{Example PV validation plot for BPIX Layer 1, comparing HipPy (blue) and Millepede (red) alignments using beam data, both calculated from the starting geometry of PromptGT (black).}
-        % ~\cite{WeeklyTr66:online}
-        \label{fig:BiasesCanvasLayer1_PromptGT_vs_mp3588_vs_hp3252}
-    \end{center}
-\end{figure}
-\begin{figure}[!hbt]
-    \begin{center}
-        \includegraphics[width=1\textwidth] {global_tracker_1_final.pdf}
-        \caption{Example global tracker plot for GC validation, comparing analogous HipPy and Millepede alignments using beam data, both calculated from PromptGT.}
-        % ~\cite{WeeklyTr66:online}
-        \label{fig:global_tracker_1_final}
-    \end{center}
-\end{figure}
+I had previously presented the HipPy algorithm at the Second CMS Tracker Alignment Workshop, in preparation for our contributions to tracker alignment in Run~3. After implementing my HipPy updates, I gave a follow-up presentation with a relevant and interactive example of aligning the pixel half-barrel and half-cylinder at the CMS Tracker Training Days. Validation plots for this alignment are shown in Figures~\ref{fig:global_tracker_1_final},~\ref{fig:DmedianR_BPIX_plain},~\ref{fig:DmedianR_FPIX_plain},~\ref{fig:DmedianYR_BPIX_plain},~\ref{fig:DmedianYR_FPIX_plain},~\ref{fig:BiasesCanvas_PromptGT_vs_mp3588_vs_hp3252},~and~\ref{fig:BiasesCanvasLayer1_PromptGT_vs_mp3588_vs_hp3252}.
 
