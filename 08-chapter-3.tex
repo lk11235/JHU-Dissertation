@@ -2,7 +2,7 @@
 
 
 % epigraph after chapter heading
-\epigraph{We are experimentalists.}{-- Andrei Gritsan}
+% \epigraph{We are experimentalists.}{-- Andrei Gritsan}
 
 
 %%%% MUST: add the citation for the chapter if it is a reprint
@@ -10,7 +10,7 @@
 
 
 %% remove the following and add your chapter text here
-\section{The Large Hadron Collider}
+\section{The Large Hadron Collider} \label{chap:LHC}
 
 Since its inaugural operation on 10 September 2008, the LHC has remained the most powerful and expansive particle accelerator ever constructed. It is so named because it is very large, consisting of a 27 km ring of superconducting magnets; accelerates hadrons, usually protons but sometimes various ions such as the nuclei of lead, argon or xenon atoms; and collides these particles via two beams traveling in opposite directions, which intersect at four points along the circumference of the machine. By pushing energy frontiers, the LHC enables scientists to test fundamental theories and explore high-energy interactions where rare and undiscovered phenomena might occur.
 
@@ -20,7 +20,7 @@ The energy of a circular particle accelerator is constrained by its size and the
 \begin{figure}[!hbt]
     \begin{center}
         \includegraphics[width=0.75\textwidth,clip] {LHCaerial.jpg}
-        \caption{An aerial view of CERN and the LHC.}
+        \caption{An aerial view of CERN and the LHC, located near Geneva on the border between France and Switzerland.}
         \label{fig:LHCaerial}
     \end{center}
 \end{figure}
@@ -56,7 +56,7 @@ The LHC relies on superconducting electromagnets to maintain and guide the circu
 
 This extreme cooling is necessary to ensure minimal resistance in the superconducting magnets and to reduce unwanted interactions that could degrade beam quality. To sustain these cryogenic conditions, the LHC employs 96 tonnes of superfluid helium, making it the world’s largest cryogenic system. Beam control and stability are further enhanced by specialized multipole magnets and final focusing quadrupoles near interaction points. Prior to collision, the beams undergo final focusing, compressing their transverse size to maximize interaction probability. The precision required for this process is akin to aligning two needles 10 km apart such that they collide at their midpoint. 
 
-All accelerator operations, including beam injection, acceleration, steering, and diagnostics, are centrally coordinated from the CERN Control Centre. The LHC facilitates collisions at four primary interaction regions housing major particle detectors: ATLAS (A Toroidal LHC ApparatuS), CMS (Compact Muon Solenoid), ALICE (A Large Ion Collider Experiment), and LHCb (Large Hadron Collider beauty). Of these, ATLAS and CMS serve as general-purpose detectors, while LHCb specializes in flavor physics, particularly the study of b-quarks, and ALICE investigates heavy-ion collisions. Each of these experiments has dedicated research objectives, with ATLAS and CMS playing a central role in Higgs boson studies and searches for BSM physics, while ALICE focuses on recreating conditions similar to those moments after the Big Bang, such as with quark-gluon plasmas. This thesis will focus on the CMS experiment.
+All accelerator operations, including beam injection, acceleration, steering, and diagnostics, are centrally coordinated from the CERN Control Center. The LHC facilitates collisions at four primary interaction regions housing major particle detectors: ATLAS (A Toroidal LHC ApparatuS), CMS (Compact Muon Solenoid), ALICE (A Large Ion Collider Experiment), and LHCb (Large Hadron Collider beauty). Of these, ATLAS and CMS serve as general-purpose detectors, while LHCb specializes in flavor physics, particularly the study of b-quarks, and ALICE investigates heavy-ion collisions. Each of these experiments has dedicated research objectives, with ATLAS and CMS playing a central role in Higgs boson studies and searches for BSM physics, while ALICE focuses on recreating conditions similar to those moments after the Big Bang, such as with quark-gluon plasmas. This thesis presents results obtained using pp collision data recorded by the CMS experiment.
 
 Proton beams at the LHC are structured into well-defined bunches due to the constraints imposed by RF acceleration. Under nominal conditions, each beam comprises 2808 bunches, with each bunch containing approximately $10^{11}$ protons. Given the minute transverse dimensions of the bunches, the probability of individual proton-proton collisions becomes very large through the high luminosity achieved through intense beam focusing and bunch structuring. At each interaction point, up to 60 simultaneous collisions can occur per bunch crossing. With bunch crossings occurring at a rate of $\sim40$ MHz, the LHC generates approximately $2.5 \times 10^9$ proton-proton interactions per second. This vast amount of data necessitates sophisticated triggering systems to selectively record the most interesting events while discarding redundant or low-energy interactions. Advances in machine learning techniques have also been integrated into the LHC's data-processing pipeline to optimize event selection and improve detection of rare physics processes.
 
@@ -69,7 +69,7 @@ A key parameter quantifying collider performance is luminosity, defined as the n
 \end{gathered}
 \end{equation}
 
-where $N_p$ is the number of particles per bunch, $N_b$ is the number of bunches per beam, $f$ is the revolution frequency of the bunches around the ring, $\epsilon_n$ is the transverse emittance, $\beta^*$ is the amplitude function at the interaction or crossing point, $\mathcal{F}$ is a geometric factor correlated to the crossing angle of the beams, and $\gamma$ is the relativistic Lorentz factor $\frac{1}{\sqrt{1-\beta^2}}$.
+where $N_p$ is the number of particles per bunch, $N_b$ is the number of bunches per beam, $f$ is the revolution frequency of the bunches around the ring, $\epsilon_n$ is the transverse emittance, $\beta^*$ is the amplitude function at the interaction or crossing point, $\mathcal{F}$ is a geometric factor correlated to the crossing angle of the beams, and $\gamma$ is the relativistic Lorentz factor $\frac{1}{\sqrt{1-\beta^2}}$. A plot of the integrated luminosities delivered and recorded by CMS is shown in Figure~\ref{fig:cmsintlumi}. This thesis includes data through 2018 (Run 1 + Run 2).
 
 The number of events for a particular interaction also depends on its probability, expressed as a cross section in units of area. When investigating a specific physics process, the event rate is determined by the product of the luminosity ($\mathcal{L}$) and the process-specific cross-section ($\sigma$):
 
@@ -80,7 +80,13 @@ The number of events for a particular interaction also depends on its probabilit
 \end{gathered}
 \end{equation}
 
-
+\begin{figure}[!hbt]
+\begin{center}
+    \includegraphics[width=0.8\textwidth,clip] {int_lumi_cumulative_pp_2.pdf}
+    \caption{Cumulative luminosity versus day delivered to CMS during stable beams for pp collisions at nominal center-of-mass energy. This is shown for data-taking in 2010 (green), 2011 (red), 2012 (blue), 2015 (purple), 2016 (orange), 2017 (light blue), 2018 (navy blue), 2022 (brown), and 2023 (light purple). These plots use the best available offline calibrations for each year.}
+    \label{fig:cmsintlumi}
+\end{center}
+\end{figure}
 
 \section{The Compact Muon Solenoid} \label{chap:chap-3.2-CMS}
 The CMS detector is built around a large superconducting solenoid, for which it is named. It spans 6 meters in its internal diameter and generates a magnetic field of 3.8 Tesla. This very large field bends the trajectories of charged particles which helps to identify their momenta along with charge information. Inside the solenoid we find silicon trackers and calorimeters, while outside the solenoid we have layers of muon detection chambers \cite{CMStechprop, The_CMS_Collaboration_2008, Contardo:2020886}.
@@ -496,7 +502,7 @@ Each module is also parameterized in a global coordinate system $(x, y, z)$. The
 \end{equation}  
 where $\mathbf{r} = (x,y,z)$ represents the position in the global coordinate system, $\mathbf{q} = (u,v,w)$ denotes the corresponding position in the local module system, $\mathbf{r_0} = (x_0,y_0,z_0)$ is the position of the detector module center in global coordinates, and $\mathbf{R}$ is a rotation matrix that accounts for the module's orientation. This transformation ensures that local hit positions can be consistently related to the global detector geometry. 
 
-Also, due to the hierarchal nature of our modules, it is sometimes useful to describe the position of a group of sensors belonging to a composite tracker structure. In this case, $\mathbf{g}$ represents the coordinates in the composite basis, $\mathbf{g_0}$ gives the composite origin in global coordinates, and $\mathbf{G}$ rotates from the global to the composite system~\cite{Karimaki:926537}.
+Due to the hierarchal nature of our modules, it is sometimes useful to describe the position of a group of sensors belonging to a composite tracker structure. In this case, we use a simple change of variable to represent the same definitions as above, but for the larger structures. $\mathbf{g}$ represents the coordinates in the composite basis, $\mathbf{g_0}$ gives the composite origin in global coordinates, and $\mathbf{G}$ rotates from the global to the composite system~\cite{Karimaki:926537}.
 
 Initially, the rotation matrix $\mathbf{R}$ and the detector positions $\mathbf{r_0}$ can be determined through detector assembly and survey measurements. Then, after assembly, these parameters will be corrected incrementally through alignment procedures to account for mechanical shifts, thermal expansion, and other systematic effects that may alter the module positions over time. It should be noted that tracker alignment is not a physical procedure, but rather a correction of our interpretation of the detector data in software. 
 % Accurate alignment is essential to minimize track-hit residuals and ensure precise reconstruction of particle trajectories.
