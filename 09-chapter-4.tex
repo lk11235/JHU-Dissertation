@@ -1037,24 +1037,51 @@ The largest background in the $H \to 4\ell$ channel originates from the process 
 
 Another important background arises from processes collectively referred to as $Z+X$, where leptons are misidentified from decays of heavy-flavor hadrons, in-flight decays of light mesons within jets, or charged hadrons overlapping with $\pi^0$ decays. The dominant contribution to this background is from $Z$+jets events, estimated using data-driven methods in dedicated control regions. These control regions are defined by selecting events containing one lepton pair meeting the ${Z}_{1}$ candidate requirements, along with an additional pair of opposite-sign leptons passing looser identification criteria compared to the main analysis selection. These four leptons must then satisfy the ${Z}_{1}, {Z}_{2}$ selection criteria. The background yield in the signal region is obtained by weighting the control region events by the lepton misidentification probability ($f_{\ell}$), defined as the probability for a non-prompt lepton to pass the analysis selection. A detailed description of this method can be found in Reference~\cite{Sirunyan:2017exp}. The $m_{4\ell}$ distribution for the $Z+X$ background is modeled by a Landau function, determined from data over an extended invariant mass range of 70--770\,GeV due to limited event counts.
 
+% \begin{table*}[!hbt] 
+% \centering
+% \begin{tabular}{lrrrr}
+% % \hline
+% & VBF-tagged & VH-tagged & Untagged & Total \\
+% \hline
+% $gg\to4\ell$ signal &1.0 & 0.9 & 25.1 & 27.0 \\
+% $gg\to4\ell$ background & 16.0 & 13.5 & 457.0& 486.4 \\
+% $gg\to4\ell$ interference & $-2.1$ & $-1.9$  &  $-52.0$ & $-56.1$ \\
+% EW signal         & 1.3 & 0.1 & 1.8& 3.2\\
+% EW background     & 14.9 & 2.9 & 19.7& 37.5\\
+% EW interference     & $-3.4$ & $-0.2$ & $-3.9$ & $-7.4$ \\
+% $ZH$ cross-feed & 0.2 & 0.4 & 7.0& 7.6 \\
+% $q\bar{q}\to4\ell$ background & 28.6 & 46.7 & 1795.1 & 1870.4  \\
+% $Z+X$ background & 4.7 & 5.3 & 89.7& 99.7  \\
+% \hline
+% Total expected & 61.2 & 67.8 & 2339.4 & 2468.4\\
+% Total observed & 70 & 67 & 2335 & 2472 \\
+% % \hline
+% \end{tabular}
+% \caption{Observed and expected yields for the \Hboson signal and background contributions 
+% in the \offshell region $m_{4\ell}> 220$ GeV, for each of the four-lepton categories and the total. 
+% The yields from interference of the signal and background and the $ZH$ cross-feed are also shown. 
+% The expected yields are adjusted within their respective uncertainties from the fit to the data~\cite{PhysRevD.111.092014}.}
+% \label{tab:templateyields_offshell}
+% \end{table*}
+
 \begin{table*}[!hbt] 
 \centering
 \begin{tabular}{lrrrr}
 % \hline
 & VBF-tagged & VH-tagged & Untagged & Total \\
 \hline
-$gg\to4\ell$ signal &1.0 & 0.9 & 25.1 & 27.0 \\
-$gg\to4\ell$ background & 16.0 & 13.5 & 457.0& 486.4 \\
-$gg\to4\ell$ interference & $-2.1$ & $-1.9$  &  $-52.0$ & $-56.1$ \\
-EW signal         & 1.3 & 0.1 & 1.8& 3.2\\
-EW background     & 14.9 & 2.9 & 19.7& 37.5\\
-EW interference     & $-3.4$ & $-0.2$ & $-3.9$ & $-7.4$ \\
-$ZH$ cross-feed & 0.2 & 0.4 & 7.0& 7.6 \\
-$q\bar{q}\to4\ell$ background & 28.6 & 46.7 & 1795.1 & 1870.4  \\
-$Z+X$ background & 4.7 & 5.3 & 89.7& 99.7  \\
+$gg\to4\ell$ signal &1.70 & 1.44 & 40.78 & 43.92 \\
+$gg\to4\ell$ background & 18.65 & 15.28 & 495.76 & 529.69 \\
+$gg\to4\ell$ interference & -2.86 & -2.40  &  -69.57 & -74.83 \\
+EW signal         & 1.78 & 0.12 & 2.47& 4.37\\
+EW background     & 15.41 & 1.77 & 19.25& 36.43\\
+EW interference     & -3.84 & -0.06 & -4.63 & -8.53 \\
+$ZH$ cross-feed & 0.24 & 0.44 & 7.30& 7.98 \\
+$q\bar{q}\to4\ell$ background & 25.90 & 46.00 & 1895.20 & 1967.11  \\
+$Z+X$ background & 4.32 & 4.50 & 75.47& 84.29  \\
 \hline
-Total expected & 61.2 & 67.8 & 2339.4 & 2468.4\\
-Total observed & 70 & 67 & 2335 & 2472 \\
+Total expected & 61.09 & 66.72 & 2455.20 & 2583.01\\
+Total observed & 63 & 71 & 2420 & 2554 \\
 % \hline
 \end{tabular}
 \caption{Observed and expected yields for the \Hboson signal and background contributions 
@@ -1267,13 +1294,7 @@ An extended binned maximum likelihood fit is performed on the combined \onshell 
 The extended likelihood function is constructed from the probability densities defined in Equations~(\ref{eq:ponshell}) and~(\ref{eq:poffshell}), where each event is characterized by a discrete category index $k$ and typically three observables $\vec{x}$. The likelihood $\mathcal{L}$ is maximized with respect to the nuisance parameters $\vec{\xi}_{jk}$, which encode systematic uncertainties, and the signal strength parameter $\mu$ (representing the total signal yield), or alternatively $\mu_F$ and $\mu_V$, corresponding to the gluon-fusion and electroweak production processes, respectively. Confidence intervals at 68\% and 95\% CL are determined using the profile likelihood method, with thresholds of $-2\Delta\ln\mathcal{L} = 1.00$ and $3.84$ ~\cite{Wilks:1938dza}.
 % Confidence intervals at 68\% and 95\% CL are determined using the profile likelihood method, with thresholds of $-2\Delta\ln\mathcal{L} = 1.00$ and $3.84$, respectively, consistent with asymptotic coverage expectations~\cite{Wilks:1938dza}.
 
-Constraints on $\Gamma_H$ are extracted from a simultaneous fit to $H \to ZZ \to 4\ell$ events in both the \onshell and \offshell regions. The \onshell region follows Scheme 2 as defined in Reference~\cite{CMS:2021nnc}, where six mutually exclusive categories are used and anomalous Higgs boson interactions are set to zero. This fit yields two signal strength parameters, $\mu^\text{on-shell}_{F}$ and $\mu^\text{on-shell}_{V}$, as defined in Equations~(\ref{eq:ponshell}) and~(\ref{eq:poffshell}), corresponding to production via fermionic and vector boson couplings of the \Hboson, respectively. The Higgs boson mass is fixed to $m_H = 125.38$\,GeV~\cite{Sirunyan:2020xwk}.
-
-The observed and expected constraints on the Higgs boson width are presented in Table~\ref{table:widthoffshellcomb}, while the likelihood scan of $\Gamma_H$, obtained using the asymptotic approximation, is shown in Figure~\ref{fig:widthscan}. This measurement excludes the hypothesis of no off-shell Higgs boson production with a CL corresponding to 3.0 standard deviations (compared to an average expected 1.4).
-
-The results of this analysis with the SM-like couplings are also combined with the prior CMS \offshell $H\to ZZ\to2\ell2\nu$ analysis~\cite{CMS:2022ley}, giving the first CMS measurement of $\Gamma_H$ using the full $4\ell$ and $2\ell2\nu$ data sample collected during Run 2. 
-The observed and expected $\Gamma_H$ measurements are shown in Table~\ref{table:widthoffshellcomb} and Figure~\ref{fig:widthscan} and supersede the previous CMS results~\cite{CMS:2022ley} under the SM-like coupling assumption. These combined fit results rule out the scenario of no \offshell \Hboson production
-with a CL corresponding to 3.8 standard deviations (average expected 2.4).
+Constraints on $\Gamma_H$ are extracted from a simultaneous fit to $H \to ZZ \to 4\ell$ events in both the \onshell and \offshell regions. Treatment of the \onshell region is inherited as previously discussed in Section~\ref{sec:onshell}, and uses six mutually exclusive categories with anomalous Higgs boson interactions set to zero. This fit yields two signal strength parameters, $\mu^\text{on-shell}_{F}$ and $\mu^\text{on-shell}_{V}$, as defined in Equations~(\ref{eq:ponshell}) and~(\ref{eq:poffshell}), corresponding to production via fermionic and vector boson couplings of the \Hboson, respectively. The Higgs boson mass is fixed to $m_H = 125.38$\,GeV~\cite{Sirunyan:2020xwk}.
 
 \begin{table*}[!thb]
     \centering
@@ -1284,16 +1305,25 @@ with a CL corresponding to 3.8 standard deviations (average expected 2.4).
         $4\ell$ on- and off-shell    & $2.9^{+2.3}_{-1.7} \ [0.3,7.9]$ & $4.1\pm 4.0 \ [<11.5 ]$ \\
         $4\ell$ on- and off-shell  + $2\ell2\nu$ off-shell  & $3.0^{+ 2.0 }_{- 1.5 }  \ [0.6, 7.3]$ & $4.1\pm3.5 \ [0.1,10.5]$ \\
     \end{tabular}
-    \caption{Summary of the total Higgs boson width $\Gamma_H$ measurement, showing the 68\%~CL (central values with uncertainties)
+    \caption{Summary of the ReReco-based total Higgs boson width $\Gamma_H$ measurement, showing the 68\%~CL (central values with uncertainties)
     and 95\%~CL (in square brackets) intervals for the $H \to ZZ \to 4 \ell$ channel alone and in combination with the off-shell $H \to ZZ \to 2 \ell 2 \nu$ channel~\cite{PhysRevD.111.092014}.}
     \label{table:widthoffshellcomb}
 \end{table*}
+
+As described in Section~\ref{sec:UL}, the measurements of Higgs boson width and signal strengths were performed using UL processed samples. However, before the UL processing became available, the analysis was first conducted and published using ReReco processing~\cite{PhysRevD.111.092014}. 
+% These ReReco-based width results are also included below.
+
+The ReReco-based observed and expected constraints on the Higgs boson width are presented in Table~\ref{table:widthoffshellcomb}, while the likelihood scan of $\Gamma_H$, obtained using the asymptotic approximation, is shown in Figure~\ref{fig:widthscan}. This measurement excludes the hypothesis of no off-shell Higgs boson production with a CL corresponding to 3.0 standard deviations (compared to an average expected 1.4).
+
+The results of this analysis with the SM-like couplings are also combined with the prior CMS \offshell $H\to ZZ\to2\ell2\nu$ analysis~\cite{CMS:2022ley}, giving the first CMS measurement of $\Gamma_H$ using the full $4\ell$ and $2\ell2\nu$ data sample collected during Run 2. 
+The observed and expected $\Gamma_H$ measurements are shown in Table~\ref{table:widthoffshellcomb} and Figure~\ref{fig:widthscan} and supersede the previous CMS results~\cite{CMS:2022ley} under the SM-like coupling assumption. These combined fit results rule out the scenario of no \offshell \Hboson production
+with a CL corresponding to 3.8 standard deviations (average expected 2.4).
 
 \begin{figure}[!hbt]
     \centering
     \includegraphics[width=0.8\textwidth]{figures/Figure_011.pdf}  
     \caption{
-        Observed (solid) and expected (dashed) profile likelihood projections from the \Hboson width fit using on- and off-shell production from this analysis. The analysis of the off-shell $H\to ZZ\to4\ell$ channel combined with the on-shell $H\to ZZ\to4\ell$ channel~\cite{CMS:2021nnc} is shown in black. The full combination of $H\to ZZ\to4\ell$ with the off-shell $H\to ZZ\to2\ell2\nu$~\cite{CMS:2022ley} is given in red. The black horizontal dashed lines show the 68 and 95\% CL values~\cite{PhysRevD.111.092014}.}
+        ReReco-based observed (solid) and expected (dashed) profile likelihood projections from the \Hboson width fit using on- and off-shell production. The analysis of the off-shell $H\to ZZ\to4\ell$ channel combined with the on-shell $H\to ZZ\to4\ell$ channel~\cite{CMS:2021nnc} is shown in black. The full combination of $H\to ZZ\to4\ell$ with the off-shell $H\to ZZ\to2\ell2\nu$~\cite{CMS:2022ley} is given in red. The black horizontal dashed lines show the 68 and 95\% CL values~\cite{PhysRevD.111.092014}.}
     \label{fig:widthscan} 
 \end{figure}
 
@@ -1306,6 +1336,16 @@ The observed limits on $\Gamma_H$ are more stringent than the average expectatio
 
 A reduced number of events in this sensitive region favors the hypothesis of greater negative interference between the signal and background contributions, which becomes dominant over the pure signal contributions for $\Gamma_H$ values near the SM value. As a result, both large and very small values of $\Gamma_H$ are disfavored by the data.
 
+Conducting the width measurement using newly available UL processed samples gives us a slightly different result, with our observed Higgs boson width moving closer to our expectation, as shown in Figure~\ref{fig:widthscanUL} and summarized in Table~\ref{table:widthoffshellUL}.
+
+\begin{figure}[!hbt]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/widthScan.pdf}  
+    \caption{
+        Observed (solid) and expected (dashed) profile likelihood projections from the \Hboson width fit using on- and off-shell production, conducted using both ReReco (black) and UL (red) processed off-shell samples. The black horizontal dashed lines show the 68 and 95\% CL values.}
+    \label{fig:widthscanUL} 
+\end{figure}
+
 \subsection{Off-shell signal strength}
 
 % The \offshell region fit can also be performed without relating its signal strength to that for the \onshell region.
@@ -1316,71 +1356,170 @@ A reduced number of events in this sensitive region favors the hypothesis of gre
 % The measured signal strengths are reported in Table~\ref{table:muoffshell} and a 2D scan of these parameters 
 % is presented in Figure~\ref{fig:muoffshell}. The observed limits on signal strength in the \offshell region are stronger than expected on average, following a trend similar to that previously discussed for $\Gamma_H$.
 
-An alternative approach to the \offshell region fit involves decoupling its signal strength from that of the \onshell region. In this configuration, the signal yield is scaled by a single parameter, $\mu^\text{off-shell}$, which is common to all production mechanisms. The total Higgs boson width is fixed to its SM value, $\Gamma_H = \Gamma_H^{\mathrm{SM}}$, in Equation~(\ref{eq:poffshell}), and the SM expectation corresponds to $\mu^\text{off-shell} = 1$. The likelihood scan for this parameter is presented in Figure~\ref{fig:1Dmus_off}.
+An alternative approach to the \offshell region fit involves decoupling its signal strength from that of the \onshell region. In this configuration, the signal yield is scaled by a single parameter, $\mu^\text{off-shell}$, which is common to all production mechanisms. The total Higgs boson width is fixed to its SM value, $\Gamma_H = \Gamma_H^{\mathrm{SM}}$, in Equation~(\ref{eq:poffshell}), and the SM expectation corresponds to $\mu^\text{off-shell} = 1$. The likelihood scans for this parameter are presented in Figure~\ref{fig:muscansUL}, conducted using both ReReco (black) and UL (red) processed samples. Note that the new UL-based results should supersede the previously published ReReco measurements~\cite{PhysRevD.111.092014}.
 
-In addition, a more general fit is performed with two unconstrained signal strength parameters: $\mu^\text{off-shell}_{F}$ and $\mu^\text{off-shell}_{V}$, corresponding to gluon-fusion and electroweak production mechanisms, respectively. The measured values of these parameters are reported in Table~\ref{table:muoffshell}, illustrated in Figures~\ref{fig:1Dmus_F} and \ref{fig:1Dmus_V}, and their joint CL regions are shown in the two-dimensional likelihood scan in Figure~\ref{fig:muoffshell}. The observed constraints on the \offshell signal strengths are stronger than the average expected values, consistent with the trend observed earlier in the $\Gamma_H$ analysis.
+In addition, a more general fit is performed with two unconstrained signal strength parameters: $\mu^\text{off-shell}_{F}$ and $\mu^\text{off-shell}_{V}$, corresponding to gluon-fusion and electroweak production mechanisms, respectively. The UL-based measured values of these parameters are reported in Table~\ref{table:widthoffshellUL} and illustrated in Figure~\ref{fig:muscansUL}, with their joint CL regions shown in the two-dimensional likelihood scan to the bottom-right of Figure~\ref{fig:muscansUL}. 
+% The observed constraints on the \offshell signal strengths are stronger than the average expected values, consistent with the trend observed earlier in the $\Gamma_H$ analysis.
 
-\begin{table*}[!hbt]
-\centering
-% \renewcommand{\arraystretch}{1.6}
-\begin{tabular}{lcc}
-  Parameter                & {Observed}          &  {Expected}   \\
-  \hline
-  $\mu^\text{off-shell}$ &  $0.67^{+ 0.42}_{-0.32 }\ [0.14,1.54]$ & $1.00^{+ 0.83}_{-0.84}\ [0.02,2.46]$ \\
-  $\mu_F^\text{off-shell}$ &  $0.57^{+ 0.50}_{- 0.36}\ [0.04,1.61]$ & $1.00^{+0.90}_{-0.98}\ [{<}2.62]$\\
-  $\mu_V^\text{off-shell}$ &  $ 0.87^{+0.93}_{-0.57}\ [0.05,2.90]$ & $1.00^{+1.95}_{-0.89}\ [{<}4.34]$ \\
-\end{tabular}
-\caption{
-  Measured values of the signal strengths $\mu^\text{off-shell}$, $\mu_F^\text{off-shell}$, and $\mu_V^\text{off-shell}$,
-  and their 68\% and 95\% (in square brackets) CL intervals from the combined fit to the \offshell $H\to ZZ\to4\ell$ and $2\ell2\nu$ channels.
-}
-\label{table:muoffshell}
+\begin{table*}[!thb]
+    \centering
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{lll}
+        Parameter & Observed & Expected \\ \hline
+$\Gamma_H$ & $3.4^{+2.6}_{-2.0}$[0.3, 8.9] & $4.1^{+4.1}_{-4.0}$[<11.7] \\ 
+$\mu^\text{off-shell}$ & $0.75^{+0.57}_{-0.44}$[0.07, 1.94] & $1.00^{+1.02}_{-0.96}$[<2.83] \\ 
+$\mu_F^\text{off-shell}$ & $0.66^{+0.63}_{-0.46}$[0.02, 1.97] & $1.00^{+1.04}_{-1.00}$[<2.89] \\
+$\mu_V^\text{off-shell}$ & $0.92^{+1.46}_{-0.78}$[<4.40] & $0.96^{+3.29}_{-0.96}$ \\ 
+    \end{tabular}
+    \caption{Summary of all UL-based results. Total Higgs boson width $\Gamma_H$ and signal strength $\mu_j$ measurements, with 68\%~CL (central values with uncertainties) and 95\%~CL (in square brackets) intervals for the $H \to ZZ \to 4 \ell$ channel.}
+    \label{table:widthoffshellUL}
 \end{table*}
+% \begin{table*}[!thb]
+%     \centering
+%     \renewcommand{\arraystretch}{1.5}
+%     \begin{tabular}{lll}
+%         Parameter & Observed & Expected \\ \hline
+% $\Gamma_H$ & $3.4^{+2.6}_{-2.0}$[0.3, 8.9] & $4.1^{+4.1}_{-4.0}$[<11.7] \\ 
+% $\mu^\text{off-shell}$ & $0.8^{+0.6}_{-0.4}$[0.1, 1.9] & $1.0^{+1.0}_{-1.0}$[<2.8] \\ 
+% $\mu_F^\text{off-shell}$ & $0.7^{+0.6}_{-0.5}$[0.0, 2.0] & $1.0^{+1.0}_{-1.0}$[<2.9] \\
+% $\mu_V^\text{off-shell}$ & $0.9^{+1.5}_{-0.8}$[<4.4] & $1.0^{+3.3}_{-1.0}$ \\ 
+%     \end{tabular}
+%     \caption{Summary of all UL-based results. Total Higgs boson width $\Gamma_H$ and signal strength $\mu_j$ measurements, with 68\%~CL (central values with uncertainties) and 95\%~CL (in square brackets) intervals for the $H \to ZZ \to 4 \ell$ channel.}
+%     \label{table:widthoffshellUL}
+% \end{table*}
+% \begin{table*}[!thb]
+%     \centering
+%     \renewcommand{\arraystretch}{1.5}
+%     \begin{tabular}{lll}
+%         Parameter & Observed & Expected \\ \hline
+% $\Gamma_H$ & $3.35^{+2.61}_{-1.97}$[0.32, 8.85] & $4.13^{+4.09}_{-4.00}$[<11.69] \\ 
+% $\mu^\text{off-shell}$ & $0.75^{+0.57}_{-0.44}$[0.07, 1.94] & $1.00^{+1.02}_{-0.96}$[<2.83] \\ 
+% $\mu_F^\text{off-shell}$ & $0.66^{+0.63}_{-0.46}$[0.02, 1.97] & $1.00^{+1.04}_{-1.00}$[<2.89] \\
+% $\mu_V^\text{off-shell}$ & $0.92^{+1.46}_{-0.78}$[<4.40] & $0.96^{+3.29}_{-0.96}$ \\ 
+%     \end{tabular}
+%     \caption{Summary of all UL-based results. Total Higgs boson width $\Gamma_H$ and signal strength $\mu_j$ measurements, with 68\%~CL (central values with uncertainties) and 95\%~CL (in square brackets) intervals for the $H \to ZZ \to 4 \ell$ channel.}
+%     \label{table:widthoffshellUL}
+% \end{table*}
 
-\begin{figure}[!hbt]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{figures/scan_Roff_upd.pdf}
-\caption
-{
-Observed and expected ikelihood scans for $\mu^{\text{off-shell}}$ with the combination of $H\to4\ell$ and $H\to2\ell2\nu$ final states.
-\label{fig:1Dmus_off}
+\begin{figure*}[!hbt]
+\centering
+\includegraphics[width=0.45\textwidth]{figures/scan_muFoff_upd.pdf}
+\includegraphics[width=0.45\textwidth]{figures/scan_muFoff_upd.pdf}\\ 
+\includegraphics[width=0.45\textwidth]{figures/scan_Roff_upd.pdf}
+\includegraphics[width=0.45\textwidth]{figures/scan_mu2D_UL.pdf}\\ 
+\caption{
+Observed and expected likelihood scans for $\mu_F^{\text{off-shell}}$ (top-left), $\mu_V^{\text{off-shell}}$ (top-right), and $\mu^{\text{off-shell}}$ (bottom-left) conducted using both ReReco (black) and UL (red) processed samples. Additionally, an UL-based observed 2D profile likelihood projection (bottom-right) of the \offshell signal strength parameters ($\mu^\text{off-shell}_{F}$, $\mu^\text{off-shell}_{V}$) from the fit to the \offshell $H\to ZZ\to4\ell$ channel. The best fit value is shown by the black cross and the SM prediction by the red x. The 68 and 95\% CL contours are given by the dashed and solid curves, respectively. The color scale to the right of the plot relates the quantitative values.
 }
-\end{center}
-\end{figure}
+\label{fig:muscansUL}
+\end{figure*}
 
-\begin{figure}[!hbt]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{figures/scan_muFoff_upd.pdf}
-\caption
-{
-Observed and expected ikelihood scans for $\mu_F^{\text{off-shell}}$ with the combination of $H\to4\ell$ and $H\to2\ell2\nu$ final states.
-\label{fig:1Dmus_F}
-}
-\end{center}
-\end{figure}
+\clearpage
 
-\begin{figure}[!hbt]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{figures/scan_muVoff_upd.pdf}
-\caption
-{
-Observed and expected ikelihood scans for $\mu_V^{\text{off-shell}}$ with the combination of $H\to4\ell$ and $H\to2\ell2\nu$ final states.
-\label{fig:1Dmus_V}
-}
-\end{center}
-\end{figure}
+% \begin{table*}[!hbt]
+% \centering
+% % \renewcommand{\arraystretch}{1.6}
+% \begin{tabular}{lcc}
+%   Parameter                & {Observed}          &  {Expected}   \\
+%   \hline
+%   $\mu^\text{off-shell}$ &  $0.67^{+ 0.42}_{-0.32 }\ [0.14,1.54]$ & $1.00^{+ 0.83}_{-0.84}\ [0.02,2.46]$ \\
+%   $\mu_F^\text{off-shell}$ &  $0.57^{+ 0.50}_{- 0.36}\ [0.04,1.61]$ & $1.00^{+0.90}_{-0.98}\ [{<}2.62]$\\
+%   $\mu_V^\text{off-shell}$ &  $ 0.87^{+0.93}_{-0.57}\ [0.05,2.90]$ & $1.00^{+1.95}_{-0.89}\ [{<}4.34]$ \\
+% \end{tabular}
+% \caption{
+%   Measured values of the signal strengths $\mu^\text{off-shell}$, $\mu_F^\text{off-shell}$, and $\mu_V^\text{off-shell}$,
+%   and their 68\% and 95\% (in square brackets) CL intervals from the combined fit to the \offshell $H\to ZZ\to4\ell$ and $2\ell2\nu$ channels.
+% }
+% \label{table:muoffshell}
+% \end{table*}
 
-\begin{figure}[!hbt]
-  \centering
-  \includegraphics[width=0.8\textwidth]{figures/Figure_012.pdf}  
-  \caption
-      {
-        Observed 2D profile likelihood projection of the \offshell signal strength parameters ($\mu^\text{off-shell}_{F}$, $\mu^\text{off-shell}_{V}$) 
-        from the fit to the combined \offshell $H\to ZZ\to4\ell$ and $2\ell2\nu$ channels. The best fit value is shown by the black cross and the SM 
-        prediction by the red x. The 68 and 95\% CL contours are given by the dashed and solid curves, respectively. The color scale to the right of the plot relates the quantitative values~\cite{PhysRevD.111.092014}.
-      }
-    \label{fig:muoffshell} 
-\end{figure}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% % \begin{figure}[!hbt]
+% % \begin{center}
+% % \includegraphics[width=0.8\textwidth]{figures/scan_Roff_upd.pdf}
+% % \caption
+% % {
+% % Observed and expected ikelihood scans for $\mu^{\text{off-shell}}$ with the combination of $H\to4\ell$ and $H\to2\ell2\nu$ final states.
+% % \label{fig:1Dmus_off}
+% % }
+% % \end{center}
+% % \end{figure}
+% \begin{figure}[!hbt]
+% \begin{center}
+% \includegraphics[width=0.8\textwidth]{figures/scan_Roff_upd.pdf}
+% \caption
+% {
+% Observed and expected likelihood scans for $\mu^{\text{off-shell}}$ conducted using both ReReco (black) and UL (red) processed samples.
+% \label{fig:1Dmus_off}
+% }
+% \end{center}
+% \end{figure}
+
+% % \begin{figure}[!hbt]
+% % \begin{center}
+% % \includegraphics[width=0.8\textwidth]{figures/scan_muFoff_upd.pdf}
+% % \caption
+% % {
+% % Observed and expected ikelihood scans for $\mu_F^{\text{off-shell}}$ with the combination of $H\to4\ell$ and $H\to2\ell2\nu$ final states.
+% % \label{fig:1Dmus_F}
+% % }
+% % \end{center}
+% % \end{figure}
+% \begin{figure}[!hbt]
+% \begin{center}
+% \includegraphics[width=0.8\textwidth]{figures/scan_muFoff_upd.pdf}
+% \caption
+% {
+% Observed and expected ikelihood scans for $\mu_F^{\text{off-shell}}$ conducted using both ReReco (black) and UL (red) processed samples.
+% \label{fig:1Dmus_F}
+% }
+% \end{center}
+% \end{figure}
+
+% % \begin{figure}[!hbt]
+% % \begin{center}
+% % \includegraphics[width=0.8\textwidth]{figures/scan_muVoff_upd.pdf}
+% % \caption
+% % {
+% % Observed and expected ikelihood scans for $\mu_V^{\text{off-shell}}$ with the combination of $H\to4\ell$ and $H\to2\ell2\nu$ final states.
+% % \label{fig:1Dmus_V}
+% % }
+% % \end{center}
+% % \end{figure}
+% \begin{figure}[!hbt]
+% \begin{center}
+% \includegraphics[width=0.8\textwidth]{figures/scan_muVoff_upd.pdf}
+% \caption
+% {
+% Observed and expected likelihood scans for $\mu_V^{\text{off-shell}}$ conducted using both ReReco (black) and UL (red) processed samples.
+% \label{fig:1Dmus_V}
+% }
+% \end{center}
+% \end{figure}
+
+% % \begin{figure}[!hbt]
+% %   \centering
+% %   \includegraphics[width=0.8\textwidth]{figures/Figure_012.pdf}  
+% %   \caption
+% %       {
+% %         Observed 2D profile likelihood projection of the \offshell signal strength parameters ($\mu^\text{off-shell}_{F}$, $\mu^\text{off-shell}_{V}$) 
+% %         from the fit to the combined \offshell $H\to ZZ\to4\ell$ and $2\ell2\nu$ channels. The best fit value is shown by the black cross and the SM 
+% %         prediction by the red x. The 68 and 95\% CL contours are given by the dashed and solid curves, respectively. The color scale to the right of the plot relates the quantitative values~\cite{PhysRevD.111.092014}.
+% %       }
+% %     \label{fig:muoffshell} 
+% % \end{figure}
+% \begin{figure}[!hbt]
+%   \centering
+%   \includegraphics[width=0.8\textwidth]{figures/scan_mu2D_UL.pdf}  
+%   \caption
+%       {
+%         UL-based observed 2D profile likelihood projection of the \offshell signal strength parameters ($\mu^\text{off-shell}_{F}$, $\mu^\text{off-shell}_{V}$) 
+%         from the fit to the \offshell $H\to ZZ\to4\ell$ channel. The best fit value is shown by the black cross and the SM prediction by the red x. The 68 and 95\% CL contours are given by the dashed and solid curves, respectively. The color scale to the right of the plot relates the quantitative values.
+%       }
+%     \label{fig:muoffshell} 
+% \end{figure}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Kappa framework}
 
@@ -1414,13 +1553,13 @@ Observed and expected ikelihood scans for $\mu_V^{\text{off-shell}}$ with the co
 % in the future will lead to much stricter constraints on $\kappa_{Q}$, reducing the flexibility 
 % to alter the SM-like evolution of the \Hboson couplings over a large $m_{4\ell}$ range.
 
-The $\Gamma_H$ constraints presented in Section~\ref{sec:offshellwidth} assume SM-like evolution of the Higgs boson couplings across a wide $m_{4\ell}$ range. Anomalous contributions to the $HVV$ vertex in EW production and Higgs boson decay were investigated in earlier analyses using smaller datasets~\cite{Sirunyan:2019twz,CMS:2022ley}, and the resulting $\Gamma_H$ constraints remained consistent. However, both the current and previous analyses assume that the gluon-fusion production mechanism is dominated by the top quark loop. If additional heavy particles contribute to the loop, this assumption would no longer hold, and the $m_{4\ell}$ dependence in the \offshell region could be significantly modified.
+The $\Gamma_H$ constraints presented in Section~\ref{sec:offshellwidth} assume SM-like evolution of the Higgs boson couplings across a wide $m_{4\ell}$ range. Anomalous contributions to the $HVV$ vertex in EW production and Higgs boson decay were investigated in earlier analyses using smaller datasets~\cite{Sirunyan:2019twz,CMS:2022ley}, and the resulting $\Gamma_H$ constraints remained consistent. However, both the current and previous analyses assume that the gluon-fusion production mechanism is dominated by the top quark loop. If additional heavy particles contribute to the loop, this assumption would no longer hold, and the $m_{4\ell}$ dependence in the \offshell region could be significantly modified. This possibility is explored using ReReco processed samples~\cite{PhysRevD.111.092014}.
 
 To explore the impact of potential contributions from new heavy particles in the $gg \to H$ loop, a hypothetical heavy quark $Q$ is introduced with an unconstrained coupling strength $\kappa_Q$, such as is described in Section~\ref{sec:kappa}~\cite{Gritsan:2020pib,Davis:2021tiv}. In the framework of Effective Field Theory (EFT), the influence of such a particle is modeled as a point-like interaction that encapsulates its loop effects. The parametrization in Equation~(\ref{eq:poffshell}) is extended to include template components proportional to $\kappa_Q$ and $\kappa_Q^2$, obtained from simulations reweighted using the MELA package in the limit of infinite $Q$ mass. 
 
-The $m_{4\ell}$ distribution in the \offshell region exhibits different behaviors for SM-like gluon fusion—dominated by the top quark with the $2m_t$ threshold—and for scenarios involving the additional heavy quark $Q$~\cite{Gritsan:2020pib}. Allowing $\kappa_Q$ to vary freely introduces additional uncertainty in the $m_{4\ell}$ spectrum, which weakens the sensitivity to $\Gamma_H$. Nonetheless, both the \onshell and \offshell $H \to 4\ell$ data constrain the allowed values of $\kappa_Q$, and the $\Gamma_H$ constraints remain broadly consistent with the $\kappa_Q = 0$ case.
+The $m_{4\ell}$ distribution in the \offshell region exhibits different behaviors for SM-like gluon fusion---dominated by the top quark with the $2m_t$ threshold---and for scenarios involving the additional heavy quark $Q$~\cite{Gritsan:2020pib}. Allowing $\kappa_Q$ to vary freely introduces additional uncertainty in the $m_{4\ell}$ spectrum, which weakens the sensitivity to $\Gamma_H$. Nonetheless, both the \onshell and \offshell $H \to 4\ell$ data constrain the allowed values of $\kappa_Q$, and the $\Gamma_H$ constraints remain broadly consistent with the $\kappa_Q = 0$ case.
 
-From the simultaneous fit to the \onshell and \offshell regions, the observed width is measured to be $\Gamma_H = 2.7^{+2.7}_{-1.8}$\,MeV, with an expected value of $4.1^{+5.5}_{-4.1}$\,MeV. The observed (expected) 95\% confidence interval is $[0.1,\,8.8]$\,MeV ($[\,{<}14.4]$\,MeV)
+From a simultaneous fit to the \onshell and \offshell regions, based on ReReco processing, the observed width is measured to be $\Gamma_H = 2.7^{+2.7}_{-1.8}$\,MeV, with an expected value of $4.1^{+5.5}_{-4.1}$\,MeV~\cite{PhysRevD.111.092014}. The observed 95\% confidence interval is $[0.1,\,8.8]$\,MeV, with an expected range of $[\,{<}14.4]$\,MeV~\cite{PhysRevD.111.092014}.
 % , as illustrated in Figure~\ref{fig:kappa_width_scan}.
 Future combinations with measurements from other \onshell Higgs boson production and decay channels are expected to significantly improve constraints on $\kappa_Q$, thereby reducing the allowed deviations from SM-like coupling evolution across the high-$m_{4\ell}$ regime.
 
@@ -1435,7 +1574,7 @@ Future combinations with measurements from other \onshell Higgs boson production
 
 Utilizing Equations~\ref{eq:KappaMu} and \ref{eq:KappaMu2}, we can also consider likelihood scans of the parameters $\mu_F$ and $\mu_V$ 
 % in Figures~\ref{fig:kappa_muF_scan} and \ref{fig:kappa_muV_scan}, respectively, 
-with and without including $\kappa_Q$ unconstrained. The numerical results are outlined in Table~\ref{table:offshellKappa}.\\
+with and without including $\kappa_Q$ unconstrained. The numerical results are outlined in Table~\ref{table:offshellKappa}.
 
 \begin{table}[!hbt]
 \centering
@@ -1453,7 +1592,7 @@ $\mu_V$     & $\kappa_Q=0$       & $1.04^{+0.43}_{-0.37} ~[0.35,1.96]$   &  $1.0
 % \hline
 \end{tabular}
 \caption{
-Summary of constraints at 68\%~CL (central values with uncertainties) and 95\%~CL (in square brackets) on the parameters $\mu_F$ and $\mu_V$ with and without including $\kappa_Q$ unconstrained.}
+Summary of constraints at 68\%~CL (central values with uncertainties) and 95\%~CL (in square brackets) on the parameters $\mu_F$ and $\mu_V$ with and without including $\kappa_Q$ unconstrained~\cite{PhysRevD.111.092014}.}
 \label{table:offshellKappa}
 \end{table}
 
